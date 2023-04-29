@@ -15,6 +15,9 @@ function Reference() {
   //updates
   const [update, setUpdate] = useState(false);
 
+  //const leftBracket = "&lt;";
+  //const rightBracket = "&gt;";
+
   //This function runs whenever the person presses enter key
   function useEnterKey(e) {
     if (e.key === "enter" || e.key === "Enter") {
@@ -37,6 +40,23 @@ function Reference() {
           const cal = inp[2];
           const des = inp.slice(3).join(" ");
 
+          const post = {
+            method: "POST",
+            body: JSON.stringify({ name, calories: cal, description: des }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+          fetch("http://localhost:4000/recipes", post)
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error(error));
+        } else {
+          console.log(index);
+          const name = inp.slice(1, index);
+          const cal = inp[index];
+          const des = inp.slice(index + 1).join(" ");
           const post = {
             method: "POST",
             body: JSON.stringify({ name, calories: cal, description: des }),
@@ -72,7 +92,7 @@ function Reference() {
       if (first_input === "read" || first_input === "Read") {
         //read off id
         if (second_input === "id") {
-          fetch(`http://localhost:4000/recipes/search?id=${third_input}`)
+          fetch(`http://localhost:4000/recipes/search?shortId=${third_input}`)
             .then((response) => response.json())
             .then((data) => {
               if (data) {
@@ -102,8 +122,20 @@ function Reference() {
       .catch((error) => console.error(error));
   }
 
+  /*
+  async function fetchRecipes() {
+    try {
+      const response = await fetch("http://localhost:4000/recipes");
+      const data = await response.json();
+      setRecipes(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };*/
+
   //This runs whenver the program mounts
   useEffect(() => {
+    console.log("use effect runs");
     fetchRecipes();
   }, []); //Add a value inside [] and whenever it changes this will run again
 
@@ -112,9 +144,9 @@ function Reference() {
       <ApiDirections>
         <h1>Commands:</h1>
         <h2>update</h2>
-        <h2>delete idnumber</h2>
-        <h2>post food calories description</h2>
-        <h2>read id idnumber</h2>
+        <h2>delete &lt;id&gt;</h2>
+        <h2>post &lt;food&gt; &lt;calories&gt; &lt;description&gt;</h2>
+        <h2>read id &lt;idnumber&gt;</h2>
       </ApiDirections>
       <SearchBar>
         <input
@@ -140,9 +172,13 @@ function Reference() {
         <tbody>
           {update &&
             recipes.map((recipe) => (
-              <tr key={recipe.id}>
-                <td>{recipe.id}</td>
-                <td>{recipe.name}</td>
+              <tr key={recipe.shortId}>
+                <td>{recipe.shortId}</td>
+                <td>
+                  {Array.isArray(recipe.name)
+                    ? recipe.name.join(" ")
+                    : recipe.name}
+                </td>
                 <td>{recipe.calories}</td>
                 <td>{recipe.description}</td>
               </tr>
@@ -184,7 +220,7 @@ const SearchBar = styled.form`
 `;
 const ApiDirections = styled.div`
   font-family: "Open-sans", sans-serif;
-  h1{
+  h1 {
     text-align: center;
   }
   h2 {
