@@ -142,7 +142,7 @@ function Reference() {
   return (
     <div>
       <ApiDirections>
-        <h1>Commands:</h1>
+        <h1>Commands</h1>
         <h2>update</h2>
         <h2>delete &lt;id&gt;</h2>
         <h2>post &lt;food&gt; &lt;calories&gt; &lt;description&gt;</h2>
@@ -207,9 +207,8 @@ const SearchBar = styled.form`
   .search-bar {
     border: 2px solid black;
     padding: 10px;
-    width: 700px;
-    font-size: 2em;
-    opacity: 0.9;
+    width: 1000px;
+    font-size: 1.2rem;
     font-family: "Open-sans", sans-serif;
   }
   @media screen and (max-width: 768px) {
@@ -219,13 +218,16 @@ const SearchBar = styled.form`
   }
 `;
 const ApiDirections = styled.div`
-  font-family: "Open-sans", sans-serif;
   h1 {
+    font-family: "Red Hat Display", sans-serif;
     text-align: center;
+    font-size: 2.5rem;
   }
   h2 {
+    font-family: "Open-sans", sans-serif;
     text-align: center;
     font-weight: normal;
+    font-size: 1.2rem;
   }
 `;
 
@@ -233,7 +235,7 @@ const UpdateTable = styled.table`
   margin: 0 auto;
   border-collapse: collapse;
   font-family: "Open-sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   th,
   td {
     text-align: center;

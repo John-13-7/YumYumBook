@@ -1,40 +1,51 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <StyledNav>
-        <h1> <Link to="/">YumYumBook</Link></h1>
-        <li> <Link to="/Pricing">Pricing</Link></li>
-        <li> <Link to="/Reference">Api Reference</Link></li>
+      <h1>
+        {" "}
+        <Link to="/">YumYumBook</Link>
+      </h1>
+      <li>
+        {" "}
+        <Link to="/Pricing">FAQ</Link>
+      </li>
+      <li>
+        {" "}
+        <Link to="/Reference">Api Reference</Link>
+      </li>
     </StyledNav>
   );
-};
+}
 const StyledNav = styled.nav`
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: -40px;
-  background-color: #bac2ba;
+  margin-top: -30px;
+  background-color: red;
 
-  a{
+  a {
     text-decoration: none;
-    color: black;
+    color: orange;
   }
 
-  h1{
+  h1 {
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: 40px;
     font-size: 3.5rem;
     font-family: "Lobster", cursive;
   }
 
-  li{
-    margin-right: 30px;
+  li {
     font-family: "Open-sans", sans-serif;
-    font-size: 1.5rem;
+    margin-right: 75px;
+    margin-top: 15px;
+    font-size: 2rem;
+    font-weight: 750;
   }
 `;
 export default Nav;
