@@ -155,6 +155,7 @@ function Reference() {
           onChange={(e) => {
             setInput(e.target.value);
             setUpdate(false);
+            setRead([]);
           }}
           value={input}
           onKeyDown={useEnterKey}
@@ -185,16 +186,16 @@ function Reference() {
             ))}
         </tbody>
       </UpdateTable>
-      <div>
+      <ReadDiv>
         {read.map((recipe) => (
-          <div>
-            <span>{recipe.id}</span>
-            <span>{recipe.name}</span>
-            <span>{recipe.calories}</span>
-            <span>{recipe.description}</span>
-          </div>
+          <tr>
+            <td>{recipe.shortId}</td>
+            <td>{recipe.name}</td>
+            <td>{recipe.calories}</td>
+            <td>{recipe.description}</td>
+          </tr>
         ))}
-      </div>
+      </ReadDiv>
     </div>
   );
 }
@@ -237,6 +238,17 @@ const UpdateTable = styled.table`
   font-family: "Open-sans", sans-serif;
   font-size: 1.2rem;
   th,
+  td {
+    text-align: center;
+    padding: 10px;
+  }
+`;
+
+const ReadDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.2rem;
   td {
     text-align: center;
     padding: 10px;
