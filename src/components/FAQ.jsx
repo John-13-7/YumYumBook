@@ -6,7 +6,9 @@ function FAQ() {
     <StyledFAQ>
       <div className="left-bar"></div>
       <div className="content">
-        <h2>What is YumYumBook?</h2>
+        <h2>
+          <span>What is </span> <h1 className="yyb">YumYumBook</h1>
+        </h2>
         <p>
           YumYumBook is a collection of recipes that software developers can use
           similar to an API. It also simulates the way a database works.
@@ -44,6 +46,7 @@ const StyledFAQ = styled.div`
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
+
   .left-bar {
     position: fixed;
     top: 150px;
@@ -55,12 +58,19 @@ const StyledFAQ = styled.div`
   .content {
     margin: 0 10px 0 20px;
   }
+  .yyb {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: "Lobster", cursive;
+    color: orange;
+  }
 
   h2 {
     font-size: 2rem;
-    font-family: 'Red Hat Display', sans-serif;
-    margin-left: 10px;  
+    font-family: "Red Hat Display", sans-serif;
+    margin-left: 10px;
   }
+  
 
   p {
     font-family: "Open-sans", sans-serif;
