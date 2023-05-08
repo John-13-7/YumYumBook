@@ -44,11 +44,11 @@ const StyledLanding = styled.div`
     font-size: 1.5rem;
   }
   .yyb {
-    padding-left: 20px;
     display: inline-block;
     font-size: 3.5rem;
     font-family: "Lobster", cursive;
     color: orange;
+    margin-left: 10px;
   }
 `;
 export default Landing;
