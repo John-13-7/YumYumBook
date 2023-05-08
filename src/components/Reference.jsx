@@ -3,20 +3,10 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 function Reference() {
-  //Api
-  const [recipes, setRecipes] = useState([]);
-
-  //User input when searching api references
-  const [input, setInput] = useState("");
-
-  //Reads
-  const [read, setRead] = useState([]);
-
-  //updates
-  const [update, setUpdate] = useState(false);
-
-  //const leftBracket = "&lt;";
-  //const rightBracket = "&gt;";
+  const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
+  const [input, setInput] = useState(""); // User input when searching api references
+  const [read, setRead] = useState([]); // Reads
+  const [update, setUpdate] = useState(false); // Updates
 
   //This function runs whenever the person presses enter key
   function useEnterKey(e) {
@@ -24,17 +14,13 @@ function Reference() {
       const inp = input.split(" "); //splits all the words
       const first_input = inp[0]; //first word
       const second_input = inp[1]; //second word
-      const third_input = inp[2]; //third word for like read id 3
+      const third_input = inp[2]; //third word for like read id 3, 3 is the third item
 
       //create
       if (first_input === "post") {
-        //names could have many words so i have to becareful when splicing
-        //check where it begins with a number
-        const index = inp.findIndex((int) => /\d/.test(int));
+        const index = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
         setInput("");
-        //post food calories description
-        //post chicken 4000 chicken is really good
-        //food is only one word
+        //One word food like "chicken" or "meat"
         if (index == 2) {
           const name = inp[1];
           const cal = inp[2];
@@ -53,6 +39,7 @@ function Reference() {
             .then((data) => console.log(data))
             .catch((error) => console.error(error));
         } else {
+          // foods with more than one name "chicken parmesan"
           console.log(index);
           const name = inp.slice(1, index);
           const cal = inp[index];
@@ -64,7 +51,6 @@ function Reference() {
               "Content-Type": "application/json",
             },
           };
-
           fetch("http://localhost:4000/recipes", post)
             .then((response) => response.json())
             .then((data) => console.log(data))
@@ -102,6 +88,17 @@ function Reference() {
               }
             });
           setInput("");
+        } else if (second_input === "name") {
+          fetch(`http://localhost:4000/recipes/search?name=${third_input}`)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data) {
+                setRead([data]);
+              } else {
+                console.log("Erroring getting the stuff");
+              }
+            });
+          setInput("");
         }
       }
 
@@ -121,17 +118,6 @@ function Reference() {
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }
-
-  /*
-  async function fetchRecipes() {
-    try {
-      const response = await fetch("http://localhost:4000/recipes");
-      const data = await response.json();
-      setRecipes(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };*/
 
   //This runs whenver the program mounts
   useEffect(() => {
