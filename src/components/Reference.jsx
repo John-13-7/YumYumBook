@@ -233,8 +233,10 @@ const UpdateTable = styled.table`
     padding: 10px;
   }
   .recipe-image {
-    width: 50%;
-    height: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 75%;
+    border: 2px solid black;
   }
 `;
 
