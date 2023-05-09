@@ -37,6 +37,8 @@ const StyledNav = styled.nav`
   }
 
   h1 {
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+      1px 1px 0 black;
     margin-right: auto;
     margin-left: 40px;
     font-size: 3.5rem;
@@ -49,6 +51,8 @@ const StyledNav = styled.nav`
     margin-top: 15px;
     font-size: 2rem;
     font-weight: 750;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+      1px 1px 0 black;
   }
 `;
 export default Nav;

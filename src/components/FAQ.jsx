@@ -9,7 +9,7 @@ function FAQ() {
         <h2>
           <span>What is </span> <h1 className="yyb">YumYumBook</h1>
         </h2>
-        <p>
+        <p className="special-paragraph">
           YumYumBook is a collection of recipes that software developers can use
           similar to an API. It also simulates the way a database works.
         </p>
@@ -55,14 +55,20 @@ const StyledFAQ = styled.div`
     background-color: #f3ff07;
   }
 
+  .special-paragraph {
+    margin-top: -20px;
+  }
+
   .content {
     margin: 0 10px 0 20px;
   }
   .yyb {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: "Lobster", cursive;
     color: orange;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+      1px 1px 0 black;
   }
 
   h2 {
@@ -70,7 +76,6 @@ const StyledFAQ = styled.div`
     font-family: "Red Hat Display", sans-serif;
     margin-left: 10px;
   }
-  
 
   p {
     font-family: "Open-sans", sans-serif;
