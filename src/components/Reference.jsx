@@ -121,7 +121,7 @@ function Reference() {
 
   //This runs whenver the program mounts
   useEffect(() => {
-    console.log("use effect runs");
+    console.log(recipes);
     fetchRecipes();
   }, []); //Add a value inside [] and whenever it changes this will run again
 
@@ -154,6 +154,7 @@ function Reference() {
             <th>Name</th>
             <th>Calories</th>
             <th>Description</th>
+            <th>Image</th>
           </tr>
         </thead>
         <tbody>
@@ -168,6 +169,9 @@ function Reference() {
                 </td>
                 <td>{recipe.calories}</td>
                 <td>{recipe.description}</td>
+                <td>
+                  <img src={recipe.image} className="recipe-image" />
+                </td>
               </tr>
             ))}
         </tbody>
@@ -227,6 +231,10 @@ const UpdateTable = styled.table`
   td {
     text-align: center;
     padding: 10px;
+  }
+  .recipe-image {
+    width: 50%;
+    height: auto;
   }
 `;
 

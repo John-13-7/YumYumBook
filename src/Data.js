@@ -1,29 +1,32 @@
 const shortid = require("shortid");
-
 const recipes = [
   {
     shortId: shortid.generate(),
     name: "Pizza",
     calories: 1000,
     description: "Yum italian pizza",
+    image: "./recipe_images/pizza.jpg",
   },
   {
     shortId: shortid.generate(),
     name: "Lasagna",
     calories: 800,
     description: "Yum italian lasagna, garfield approves",
+    image: "./recipe_images/lasagna.jpg",
   },
   {
     shortId: shortid.generate(),
     name: "Chicken Parmesan",
     calories: 500,
     description: "Yum italian chicken parm, beware lactose people",
+    image: "./recipe_images/chicken_parm.jpg",
   },
   {
     shortId: shortid.generate(),
     name: "Egg Fried Rice",
     calories: 1200,
     description: "Uncle Roger Approved",
+    image: "./recipe_images/meow.jpg",
   },
   {
     shortId: shortid.generate(),
