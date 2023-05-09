@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
+//simulates a database
 function Reference() {
   const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
   const [input, setInput] = useState(""); // User input when searching api references

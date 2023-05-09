@@ -9,12 +9,15 @@ function Nav() {
         <Link to="/">YumYumBook</Link>
       </h1>
       <li>
+        <Link to="/Lookup">Recipe Lookup</Link>
+      </li>
+      <li>
         {" "}
         <Link to="/Pricing">FAQ</Link>
       </li>
       <li>
         {" "}
-        <Link to="/Reference">Api Reference</Link>
+        <Link to="/Reference">Database Simulation</Link>
       </li>
     </StyledNav>
   );
