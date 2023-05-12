@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
   align-items: center;
   margin-top: -30px;
   background-color: red;
-
+  border: 2px solid black;
   a {
     text-decoration: none;
     color: orange;

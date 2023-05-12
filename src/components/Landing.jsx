@@ -33,10 +33,12 @@ const StyledLanding = styled.div`
     display: inline-block;
     font-family: "Red Hat Display", sans-serif;
     font-size: 3rem;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+      1px 1px 0 black;
   }
   h2 {
     font-family: "Red Hat Display", sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     display: inline-block;
   }
   p {
