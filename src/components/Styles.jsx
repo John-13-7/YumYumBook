@@ -88,18 +88,31 @@ export const LookupSearchBar = styled.form`
   }
 `;
 export const DisplaySearch = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Display 5 cards per row */
+  grid-gap: 20px; /* Spacing between cards */
+  margin-top: 20px;
+  margin-left: 20px;
+
   .image {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 75%;
     border: 2px solid black;
   }
+  .recipe-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
 `;
 
-//FAQ 
+//FAQ
 export const StyledFAQ = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -203,6 +216,3 @@ export const ReadDiv = styled.div`
     padding: 10px;
   }
 `;
-
-
-

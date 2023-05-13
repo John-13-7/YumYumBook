@@ -67,7 +67,7 @@ function Lookup() {
       </LookupSearchBar>
       <DisplaySearch>
         {filteredRecipes.map((recipe) => (
-          <div>
+          <div className="recipe-card">
             <img src={recipe.image} alt="Recipe" className="image" />
             <h4>{recipe.name}</h4>
             <h5>{recipe.calories}</h5>
