@@ -4,6 +4,7 @@ import Landing from "./components/Landing";
 import FAQ from "./components/FAQ";
 import Reference from "./components/Reference";
 import Lookup from "./components/Lookup";
+
 function App() {
   return (
     <div>
