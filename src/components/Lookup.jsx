@@ -5,24 +5,37 @@ function Lookup() {
   const [recipes, setRecipes] = useState([]);
   const [input, setInput] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+
   function pressed_key(e) {
     if (e.key === "enter" || e.key === "Enter") {
-      //Also could work with e.keyCode == 13
-      //Parse input
       const inp = input.split(" "); //splits all the words
-      const isInt = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
+      //inputRef.current.value = "";
+      const isInt = inp.findIndex((int) => /\d/.test(int)); // Finds the int value inside the user input
+      console.log(isInt);
       //Means a number is being input first, means an integer
       if (isInt == 0) {
-        // get all recipes equal to the value
-        setFilteredRecipes([]); //reset it before
-        const filter = recipes.filter(
-          (recipe) => recipe.calories === parseInt(inp[0])
-        );
-        setFilteredRecipes([...filteredRecipes, ...filter]);
-        console.log(filteredRecipes);
+        filter_calories(inp);
+      } else {
+        //filter by name or cuisine
+        filter_other(inp);
       }
       e.preventDefault();
     }
+  }
+
+  function filter_calories(inp) {
+    const filter = recipes.filter(
+      (recipe) => recipe.calories === parseInt(inp[0])
+    );
+    setFilteredRecipes([...filteredRecipes, ...filter]);
+  }
+
+  function filter_other(inp) {
+    //cuisine
+    const filter = recipes.filter(
+      (recipe) => recipe.cuisine.toLowerCase() === inp[0].toLowerCase()
+    );
+    setFilteredRecipes([...filteredRecipes, ...filter]);
   }
   function fetchRecipes() {
     fetch("http://localhost:4000/recipes")
@@ -35,6 +48,11 @@ function Lookup() {
   useEffect(() => {
     fetchRecipes();
   }, []);
+
+  //Empty search
+  useEffect(() => {
+    setFilteredRecipes([]);
+  }, [input]);
   return (
     <div>
       <SearchBar>
@@ -50,10 +68,11 @@ function Lookup() {
       <DisplaySearch>
         {filteredRecipes.map((recipe) => (
           <div>
-            <img src={recipe.image} alt="Recipe" className="image"/>
+            <img src={recipe.image} alt="Recipe" className="image" />
             <h4>{recipe.name}</h4>
             <h5>{recipe.calories}</h5>
             <h5>{recipe.description}</h5>
+            <h5>{recipe.cuisine}</h5>
           </div>
         ))}
       </DisplaySearch>
@@ -80,7 +99,7 @@ const DisplaySearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  .image{
+  .image {
     width: 300px;
     height: 300px;
     border-radius: 75%;
