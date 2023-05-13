@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {LookupSearchBar, DisplaySearch} from "./Styles";
+
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
   const [input, setInput] = useState("");
@@ -23,6 +24,7 @@ function Lookup() {
     }
   }
 
+  //checks only if the first input is an integer value
   function filter_calories(inp) {
     const filter = recipes.filter(
       (recipe) => recipe.calories === parseInt(inp[0])
@@ -30,6 +32,7 @@ function Lookup() {
     setFilteredRecipes([...filteredRecipes, ...filter]);
   }
 
+  //alot of input validation could be added
   function filter_other(inp) {
     //cuisine
     const filter = recipes.filter(
@@ -49,7 +52,7 @@ function Lookup() {
     fetchRecipes();
   }, []);
 
-  //Empty search
+  //Empty the array with searched items
   useEffect(() => {
     setFilteredRecipes([]);
   }, [input]);
