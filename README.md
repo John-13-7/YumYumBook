@@ -1,17 +1,23 @@
 # Running the Project
-npm install, npm install express, npm install shortid
+npm install node express shortid react enzyme 
+npm install --save-dev  jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer jest-environment-jsdom
 
 # Interface
-Website based interface
+Website based interface. Built using styled compenents and React.js.
 
 ### Landing Page
-Simple introduction to the project. Everything is implemented with JavaScript and the ReactJS library. 
+Simple introduction to the project.
 
 ### FAQ Page
-Frequently asked questions. Overall it looks pretty handsome. 
+Frequently asked questions. 
 
-### Reference Page
-The user has instructions where they can simulate the recipe database. We recently added a lot more recipes so it looks pretty handsome. We are working on more commands for this page. But just like the path to success it is always under construction. 
+### Lookup Page
+Recipe lookup page. Can try int values to search food, or cuisine type. 
+Try: "Mexican", "American" or "Chinese"
+Try: "1000", "300", or "700"
+
+### Database Simulation Page
+Simulates the commands of what a database does using a list of created recipes. Like CREATE, READ, UPDATE, SELECT, and DELETE. 
 
 # TODO 
 
@@ -21,8 +27,5 @@ The recipe data is now in a seperate file -> Data.js; however, we need to make i
 ### Add more commands
 More read commands in the reference page
 
-### Create recipe cards
-When a user clicks on a recipe from the reference page, it goes to another page with a handsome card of the recipe
-
 # Test Cases
-Only manual input so far. Hoping to have this done soon. When the time is right. 
+Only two test cases so far, but it took a while to setup jest. Frankly the best way I could describe setting up the tests would be considering it a "movie". 

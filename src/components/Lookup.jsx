@@ -50,6 +50,7 @@ function Lookup() {
   //Get the recipes
   useEffect(() => {
     fetchRecipes();
+    console.log(recipes);
   }, []);
 
   //Empty the array with searched items
