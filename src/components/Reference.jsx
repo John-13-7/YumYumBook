@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-
+import { DatabaseSearchBar, ApiDirections, UpdateTable, ReadDiv } from "./Styles";
 //simulates a database
 function Reference() {
   const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
@@ -135,7 +134,7 @@ function Reference() {
         <h2>post &lt;food&gt; &lt;calories&gt; &lt;description&gt;</h2>
         <h2>read id &lt;idnumber&gt;</h2>
       </ApiDirections>
-      <SearchBar>
+      <DatabaseSearchBar>
         <input
           className="search-bar"
           type="text"
@@ -147,7 +146,7 @@ function Reference() {
           value={input}
           onKeyDown={useEnterKey}
         ></input>
-      </SearchBar>
+      </DatabaseSearchBar>
       <UpdateTable>
         <thead>
           <tr>
@@ -190,66 +189,5 @@ function Reference() {
     </div>
   );
 }
-
-const SearchBar = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  .search-bar {
-    border: 2px solid black;
-    padding: 10px;
-    width: 1000px;
-    font-size: 1.2rem;
-    font-family: "Open-sans", sans-serif;
-  }
-  @media screen and (max-width: 768px) {
-    .search-bar {
-      width: 100%;
-    }
-  }
-`;
-const ApiDirections = styled.div`
-  h1 {
-    font-family: "Red Hat Display", sans-serif;
-    text-align: center;
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-family: "Open-sans", sans-serif;
-    text-align: center;
-    font-weight: normal;
-    font-size: 1.2rem;
-  }
-`;
-
-const UpdateTable = styled.table`
-  margin: 0 auto;
-  border-collapse: collapse;
-  font-family: "Open-sans", sans-serif;
-  font-size: 1.2rem;
-  th,
-  td {
-    text-align: center;
-    padding: 10px;
-  }
-  .recipe-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 75%;
-    border: 2px solid black;
-  }
-`;
-
-const ReadDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  font-family: "Open-sans", sans-serif;
-  font-size: 1.2rem;
-  td {
-    text-align: center;
-    padding: 10px;
-  }
-`;
 
 export default Reference;

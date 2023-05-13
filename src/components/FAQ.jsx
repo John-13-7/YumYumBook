@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
+import { StyledFAQ } from "./Styles";
 function FAQ() {
   return (
     <StyledFAQ>
@@ -40,49 +39,4 @@ function FAQ() {
     </StyledFAQ>
   );
 }
-
-const StyledFAQ = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-
-  .left-bar {
-    position: fixed;
-    top: 150px;
-    bottom: 20px;
-    width: 10px;
-    background-color: #f3ff07;
-  }
-
-  .special-paragraph {
-    margin-top: -20px;
-  }
-
-  .content {
-    margin: 0 10px 0 20px;
-  }
-  .yyb {
-    display: inline-block;
-    font-size: 2.5rem;
-    font-family: "Lobster", cursive;
-    color: orange;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-      1px 1px 0 black;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-family: "Red Hat Display", sans-serif;
-    margin-left: 10px;
-  }
-
-  p {
-    font-family: "Open-sans", sans-serif;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    margin-left: 50px;
-  }
-`;
-
 export default FAQ;

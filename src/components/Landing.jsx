@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import{StyledLanding} from "./Styles";
 function Landing() {
   return (
     <StyledLanding>
@@ -18,39 +18,4 @@ function Landing() {
     </StyledLanding>
   );
 }
-
-const StyledLanding = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-top: 25px;
-
-  .heading {
-    display: inline-block;
-  }
-  h1 {
-    display: inline-block;
-    font-family: "Red Hat Display", sans-serif;
-    font-size: 3rem;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-      1px 1px 0 black;
-  }
-  h2 {
-    font-family: "Red Hat Display", sans-serif;
-    font-size: 3rem;
-    display: inline-block;
-  }
-  p {
-    font-family: "Open-sans", sans-serif;
-    font-size: 1.5rem;
-  }
-  .yyb {
-    display: inline-block;
-    font-size: 3.5rem;
-    font-family: "Lobster", cursive;
-    color: orange;
-    margin-left: 10px;
-  }
-`;
 export default Landing;

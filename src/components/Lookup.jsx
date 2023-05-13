@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { useState, useEffect } from "react";
+import {LookupSearchBar, DisplaySearch} from "./Styles";
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
   const [input, setInput] = useState("");
@@ -55,7 +55,7 @@ function Lookup() {
   }, [input]);
   return (
     <div>
-      <SearchBar>
+      <LookupSearchBar>
         <input
           className="search-bar"
           placeholder="Search for the wisdom you seek"
@@ -64,7 +64,7 @@ function Lookup() {
           }}
           onKeyDown={pressed_key}
         ></input>
-      </SearchBar>
+      </LookupSearchBar>
       <DisplaySearch>
         {filteredRecipes.map((recipe) => (
           <div>
@@ -80,31 +80,5 @@ function Lookup() {
   );
 }
 
-const SearchBar = styled.form`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .search-bar {
-    margin-top: 10px;
-    border: 2px solid black;
-    width: 750px;
-    padding: 10px;
-    font-size: 1.5rem;
-    font-family: "Open-sans", sans-serif;
-  }
-`;
-
-const DisplaySearch = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .image {
-    width: 300px;
-    height: 300px;
-    border-radius: 75%;
-    border: 2px solid black;
-  }
-`;
 
 export default Lookup;
