@@ -1,5 +1,5 @@
 import renderer from "react-test-renderer";
-import Lookup from "../components/Lookup";
+import Lookup, { filter_other } from "../components/Lookup";
 
 // describe("Lookup Page", () => {
 //   it("Mexican Recipes", () => {
@@ -10,14 +10,9 @@ import Lookup from "../components/Lookup";
 //     );
 //     expect(filtered_recipes).toEqual(filtered_recipes);
 //   });
-//   it("Always true", () => {
-//     expect(true).toBe(true);
-//   });
 // });
 
-describe("Always true", () => {
-  it("true", () => {
-    const lookup = renderer.create(<Lookup />);
-    expect(lookup).toBeTruthy();
-  });
+it("render lookup: ", () => {
+  const lookup = renderer.create(<Lookup />);
+  expect(lookup).toBeTruthy();
 });

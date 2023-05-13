@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+//App
+export const StyledApp = styled.div`
+  background-color: hsla(0, 100%, 50%, 1);
+  background-image: radial-gradient(
+      at 40% 20%,
+      hsla(28, 100%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 82% 38%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 31% 64%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 85% 81%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+`;
+
 //Nav Bar
 export const StyledNav = styled.nav`
   list-style: none;
