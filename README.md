@@ -1,5 +1,6 @@
 # Running the Project
-npm install node express shortid react enzyme 
+npm install node express shortid react enzyme
+
 npm install --save-dev  jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer jest-environment-jsdom
 
 # Interface
@@ -12,8 +13,10 @@ Simple introduction to the project.
 Frequently asked questions. 
 
 ### Lookup Page
-Recipe lookup page. Can try int values to search food, or cuisine type. 
+Recipe lookup page. Can try int values to search food, or cuisine type.
+
 Try: "Mexican", "American" or "Chinese"
+
 Try: "1000", "300", or "700"
 
 ### Database Simulation Page
