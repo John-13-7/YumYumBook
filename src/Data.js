@@ -416,6 +416,25 @@ const recipes = [
     image: "./recipe_images/tomato_soup.jpg",
     cuisine: "American",
   },
+  // tchen285
+  {
+    shortId: shortid.generate(),
+    name: "Spicy Crawfish",
+    calories: 300,
+    description:
+      "One of the most popular crawfish recipes in Chinese food.",
+    image: "./recipe_images/Spicy_Crawfish.jpg",
+    cuisine: "Chinese",
+  },
+  {
+    shortId: shortid.generate(),
+    name: "Boiled Beef In Hot Sauce",
+    calories: 280,
+    description:
+      "A classic Sichuan dish is easy to make at home and excitingly sizzly.",
+    image: "./recipe_images/Boiled_Beef.jpg",
+    cuisine: "Chinese",
+  },
 ];
 
 module.exports = { recipes };
