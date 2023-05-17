@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { DatabaseSearchBar, ApiDirections, UpdateTable, ReadDiv } from "./Styles";
 //simulates a database
-function Reference() {
+function DatabaseSimulation() {
   const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
   const [input, setInput] = useState(""); // User input when searching api references
   const [read, setRead] = useState([]); // Reads
@@ -190,4 +190,4 @@ function Reference() {
   );
 }
 
-export default Reference;
+export default DatabaseSimulation;
