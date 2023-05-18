@@ -46,7 +46,7 @@ const recipes = [
     calories: 450,
     description: "Fruits... in a bowl... with mint simple syrup and some rum",
     image: "./recipe_images/fruit_bowl.jpg",
-    cuisine: "Healthy",
+    cuisine: "American",
   },
   {
     shortId: shortid.generate(),

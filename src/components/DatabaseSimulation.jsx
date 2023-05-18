@@ -1,10 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {
-  DatabaseSearchBar,
-  ApiDirections,
-  UpdateTable,
-  ReadDiv,
+  DatabaseSearchBarForm,
+  DatabaseDirectionsDiv,
+  RenderTable,
 } from "./Styles";
 //simulates a database
 function DatabaseSimulation() {
@@ -21,61 +20,32 @@ function DatabaseSimulation() {
       const second_input = inp[1]; //second word
       const third_input = inp[2]; //third word for like read id 3, 3 is the third item
 
-      //POST
-      if (first_input === "post") {
+      //create
+      if (first_input === "create") {
         const index = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
         setInput("");
-        //One word food like "chicken" or "meat"
-        if (index == 2) {
-          const name = inp[1];
-          const cal = inp[2];
-          const des = inp.slice(3).join(" ");
-          const imgi = "./recipe_images/pizza.jpg";
-          const cui = "temp";
-          const post = {
-            method: "POST",
-            body: JSON.stringify({
-              name,
-              calories: cal,
-              description: des,
-              image: imgi,
-              cuisine: cui,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          };
-
-          fetch("http://localhost:4000/recipes", post)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => console.error(error));
-        } else {
-          // foods with more than one name "chicken parmesan"
-          console.log(index);
-          const name = inp.slice(1, index);
-          const cal = inp[index];
-          const des = inp.slice(index + 1).join(" ");
-          const imgi = "./recipe_images/pizza.jpg";
-          const cui = "temp";
-          const post = {
-            method: "POST",
-            body: JSON.stringify({
-              name,
-              calories: cal,
-              description: des,
-              image: imgi,
-              cuisine: cui,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          };
-          fetch("http://localhost:4000/recipes", post)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => console.error(error));
-        }
+        const name = inp.slice(1, index);
+        const cal = inp[index];
+        const des = inp.slice(index + 1).join(" ");
+        const imgi = "./recipe_images/pizza.jpg";
+        const cui = "temp";
+        const post = {
+          method: "POST",
+          body: JSON.stringify({
+            name,
+            calories: cal,
+            description: des,
+            image: imgi,
+            cuisine: cui,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        fetch("http://localhost:4000/recipes", post)
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
       }
 
       //delete off id
@@ -94,9 +64,9 @@ function DatabaseSimulation() {
           .catch((error) => console.error(error));
       }
 
-      //read
+      //read off id
       if (first_input === "read" || first_input === "Read") {
-        //read off id
+
         if (second_input === "id") {
           fetch(`http://localhost:4000/recipes/search?shortId=${third_input}`)
             .then((response) => response.json())
@@ -108,8 +78,13 @@ function DatabaseSimulation() {
               }
             });
           setInput("");
+          //read off name
         } else if (second_input === "name") {
-          fetch(`http://localhost:4000/recipes/search?name=${third_input}`)
+          const firstLetter = third_input.charAt(0).toUpperCase();
+          const restLetters = third_input.slice(1).toLowerCase();
+          const buffer = firstLetter + restLetters;
+          console.log(third_input);
+          fetch(`http://localhost:4000/recipes/search?name=${buffer}`)
             .then((response) => response.json())
             .then((data) => {
               if (data) {
@@ -147,15 +122,16 @@ function DatabaseSimulation() {
 
   return (
     <div>
-      <ApiDirections>
-        <h1>Commands</h1>
+      <DatabaseDirectionsDiv>
+        <h1>Database</h1>
+        <h2>create &lt;name&gt; &lt;calories&gt; &lt;description&gt;</h2>
+        <h2>read id &lt;value&gt; read name  &lt;value&gt;</h2>
         <h2>update</h2>
         <h2>delete &lt;id&gt;</h2>
-        <h2>post &lt;food&gt; &lt;calories&gt; &lt;description&gt;</h2>
-        <h2>read id &lt;idnumber&gt;</h2>
-      </ApiDirections>
-      <DatabaseSearchBar>
+      </DatabaseDirectionsDiv>
+      <DatabaseSearchBarForm>
         <input
+          placeholder=""
           className="search-bar"
           type="text"
           onChange={(e) => {
@@ -166,19 +142,20 @@ function DatabaseSimulation() {
           value={input}
           onKeyDown={useEnterKey}
         ></input>
-      </DatabaseSearchBar>
-      <UpdateTable>
+      </DatabaseSearchBarForm>
+      <RenderTable>
         <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Calories</th>
             <th>Description</th>
+            <th>Cuisine</th>
             <th>Image</th>
           </tr>
         </thead>
         <tbody>
-          {update &&
+          {update && //user enters update
             recipes.map((recipe) => (
               <tr key={recipe.shortId}>
                 <td>{recipe.shortId}</td>
@@ -189,23 +166,26 @@ function DatabaseSimulation() {
                 </td>
                 <td>{recipe.calories}</td>
                 <td>{recipe.description}</td>
+                <td>{recipe.cuisine}</td>
                 <td>
                   <img src={recipe.image} className="recipe-image" />
                 </td>
               </tr>
             ))}
+          {read.map((recipe) => ( //user enters read id <idnumber>
+            <tr>
+              <td>{recipe.shortId}</td>
+              <td>{recipe.name}</td>
+              <td>{recipe.calories}</td>
+              <td>{recipe.description}</td>
+              <td>{recipe.cuisine}</td>
+              <td>
+                <img src={recipe.image} className="recipe-image" />
+              </td>
+            </tr>
+          ))}
         </tbody>
-      </UpdateTable>
-      <ReadDiv>
-        {read.map((recipe) => (
-          <tr>
-            <td>{recipe.shortId}</td>
-            <td>{recipe.name}</td>
-            <td>{recipe.calories}</td>
-            <td>{recipe.description}</td>
-          </tr>
-        ))}
-      </ReadDiv>
+      </RenderTable>
     </div>
   );
 }
