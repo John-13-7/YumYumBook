@@ -1,6 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { DatabaseSearchBar, ApiDirections, UpdateTable, ReadDiv } from "./Styles";
+import {
+  DatabaseSearchBar,
+  ApiDirections,
+  UpdateTable,
+  ReadDiv,
+} from "./Styles";
 //simulates a database
 function DatabaseSimulation() {
   const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
@@ -16,7 +21,7 @@ function DatabaseSimulation() {
       const second_input = inp[1]; //second word
       const third_input = inp[2]; //third word for like read id 3, 3 is the third item
 
-      //create
+      //POST
       if (first_input === "post") {
         const index = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
         setInput("");
@@ -25,10 +30,17 @@ function DatabaseSimulation() {
           const name = inp[1];
           const cal = inp[2];
           const des = inp.slice(3).join(" ");
-
+          const imgi = "./recipe_images/pizza.jpg";
+          const cui = "temp";
           const post = {
             method: "POST",
-            body: JSON.stringify({ name, calories: cal, description: des }),
+            body: JSON.stringify({
+              name,
+              calories: cal,
+              description: des,
+              image: imgi,
+              cuisine: cui,
+            }),
             headers: {
               "Content-Type": "application/json",
             },
@@ -44,9 +56,17 @@ function DatabaseSimulation() {
           const name = inp.slice(1, index);
           const cal = inp[index];
           const des = inp.slice(index + 1).join(" ");
+          const imgi = "./recipe_images/pizza.jpg";
+          const cui = "temp";
           const post = {
             method: "POST",
-            body: JSON.stringify({ name, calories: cal, description: des }),
+            body: JSON.stringify({
+              name,
+              calories: cal,
+              description: des,
+              image: imgi,
+              cuisine: cui,
+            }),
             headers: {
               "Content-Type": "application/json",
             },

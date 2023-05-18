@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const { recipes } = require("./Data");
+const shortid = require("shortid");
+
 //So it can run locally
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -11,12 +13,14 @@ app.use((req, res, next) => {
 });
 
 app.post("/recipes", (req, res) => {
-  const { name, calories, description } = req.body;
+  const { name, calories, description, image, cuisine } = req.body;
   const new_recipe = {
     shortId: shortid.generate(),
     name,
     calories,
     description,
+    image, 
+    cuisine,
   };
   recipes.push(new_recipe);
   res.status(201).json(new_recipe);
