@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {LookupSearchBar, DisplaySearch} from "./Styles";
+import { LookupSearchBar, DisplaySearch } from "./Styles";
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
@@ -10,7 +10,6 @@ function Lookup() {
   function pressed_key(e) {
     if (e.key === "enter" || e.key === "Enter") {
       const inp = input.split(" "); //splits all the words
-      //inputRef.current.value = "";
       const isInt = inp.findIndex((int) => /\d/.test(int)); // Finds the int value inside the user input
       console.log(isInt);
       //Means a number is being input first, means an integer
@@ -20,10 +19,12 @@ function Lookup() {
         //filter by name or cuisine
         filter_other(inp);
       }
+      setInput("");
       e.preventDefault();
     }
   }
 
+  //I could just build it so it gets all the recipes, like input: "mexican chicken 700"
   //checks only if the first input is an integer value
   function filter_calories(inp) {
     const filter = recipes.filter(
@@ -38,8 +39,21 @@ function Lookup() {
     const filter = recipes.filter(
       (recipe) => recipe.cuisine.toLowerCase() === inp[0].toLowerCase()
     );
-    setFilteredRecipes([...filteredRecipes, ...filter]);
+    //means there's a cuisine search
+    if (filter.length > 0) {
+      setFilteredRecipes([...filteredRecipes, ...filter]);
+    }
+    //name search
+    else {
+      const lookup_recipe = inp.join(" ");
+      const lookup_filter = recipes.filter((recipe) =>
+        recipe.name.toLowerCase().includes(lookup_recipe.toLowerCase())
+      );
+      setFilteredRecipes([...filteredRecipes, ...lookup_filter]);
+    }
+
   }
+
   function fetchRecipes() {
     fetch("http://localhost:4000/recipes")
       .then((response) => response.json())
@@ -53,18 +67,16 @@ function Lookup() {
     console.log(recipes);
   }, []);
 
-  //Empty the array with searched items
-  useEffect(() => {
-    setFilteredRecipes([]);
-  }, [input]);
   return (
     <div>
       <LookupSearchBar>
         <input
+          value={input}
           className="search-bar"
           placeholder="Search for the wisdom you seek"
           onChange={(e) => {
             setInput(e.target.value);
+            setFilteredRecipes([]);
           }}
           onKeyDown={pressed_key}
         ></input>

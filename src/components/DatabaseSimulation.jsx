@@ -21,6 +21,7 @@ function DatabaseSimulation() {
       const second_input = inp[1]; //second word
       const third_input = inp[2]; //third word for like read id 3, 3 is the third item
 
+      //TODO FIX THIS ITS KINDA ASS LOWKEY
       //create
       if (first_input === "create") {
         const index = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
