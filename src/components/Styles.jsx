@@ -174,7 +174,7 @@ export const StyledFAQ = styled.div`
 `;
 
 //Database Simulation
-export const DatabaseSearchBar = styled.form`
+export const DatabaseSearchBarForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,7 +192,7 @@ export const DatabaseSearchBar = styled.form`
     }
   }
 `;
-export const ApiDirections = styled.div`
+export const DatabaseDirectionsDiv = styled.div`
   h1 {
     font-family: "Red Hat Display", sans-serif;
     text-align: center;
@@ -205,8 +205,9 @@ export const ApiDirections = styled.div`
     font-size: 1.2rem;
   }
 `;
-export const UpdateTable = styled.table`
+export const RenderTable = styled.table`
   margin: 0 auto;
+  margin-top: 20px;
   border-collapse: collapse;
   font-family: "Open-sans", sans-serif;
   font-size: 1.2rem;
@@ -214,21 +215,17 @@ export const UpdateTable = styled.table`
   td {
     text-align: center;
     padding: 10px;
+    border: 1px solid #ddd;
+  }
+  th{
+    background-color: #f2f2f2;
   }
   .recipe-image {
     width: 100px;
     height: 100px;
-    border-radius: 75%;
+    border-radius: 50%;
     border: 2px solid black;
+    object-fit: cover;
   }
 `;
-export const ReadDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  font-family: "Open-sans", sans-serif;
-  font-size: 1.2rem;
-  td {
-    text-align: center;
-    padding: 10px;
-  }
-`;
+
