@@ -11,7 +11,8 @@ function DatabaseSimulation() {
   const [input, setInput] = useState(""); // User input when searching api references
   const [read, setRead] = useState([]); // Reads
   const [update, setUpdate] = useState(false); // Updates
-
+  const [readState, setReadState] = useState(false);
+  const [invalidInput, setInvalidInput] = useState(false);
   //This function runs whenever the person presses enter key
   function useEnterKey(e) {
     if (e.key === "enter" || e.key === "Enter") {
@@ -48,25 +49,65 @@ function DatabaseSimulation() {
           .catch((error) => console.error(error));
       }
 
-      //delete off id
-      if (first_input === "delete" || first_input === "Delete") {
-        fetch(`http://localhost:4000/recipes/${second_input}`, {
-          method: "DELETE",
-        })
-          .then((response) => {
-            if (response.ok) {
-              fetchRecipes();
-              setInput(""); //resets the search bar to empty
-            } else {
-              console.log("Error deleting recipe");
-            }
+      //delete
+      else if (first_input === "delete" || first_input === "Delete") {
+        if (second_input === "id") {
+          fetch(`http://localhost:4000/recipes/delete?shortId=${third_input}`, {
+            method: "DELETE",
           })
-          .catch((error) => console.error(error));
+            .then((response) => {
+              if (response.ok) {
+                fetchRecipes();
+              } else {
+                console.log("Error deleting recipe");
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+
+        //delete off name
+        else if (second_input === "name") {
+
+          fetch(`http://localhost:4000/recipes/delete?name=${third_input}`, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (response.ok) {
+                fetchRecipes();
+              } else {
+                console.log("Error deleting recipe");
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+
+        //delete off calories
+        else if (second_input === "calories") {
+          console.log(inp);
+          fetch(`http://localhost:4000/recipes/delete?calories=${third_input}`, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (response.ok) {
+                fetchRecipes();
+              } else {
+                console.log("Error deleting recipe");
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+        //invalid input
+        else {
+          setInvalidInput(true);
+          setInput("");
+        }
+        setInput(""); //resets the search bar to empty
       }
 
-      //read off id
-      if (first_input === "read" || first_input === "Read") {
 
+      //read off id
+      else if (first_input === "read" || first_input === "Read") {
+        setReadState(true);
         if (second_input === "id") {
           fetch(`http://localhost:4000/recipes/search?shortId=${third_input}`)
             .then((response) => response.json())
@@ -78,13 +119,12 @@ function DatabaseSimulation() {
               }
             });
           setInput("");
+
           //read off name
         } else if (second_input === "name") {
-          const firstLetter = third_input.charAt(0).toUpperCase();
-          const restLetters = third_input.slice(1).toLowerCase();
-          const buffer = firstLetter + restLetters;
-          console.log(third_input);
-          fetch(`http://localhost:4000/recipes/search?name=${buffer}`)
+          const food = inp.slice(2, inp.length);
+          const meal = food.join(" ");
+          fetch(`http://localhost:4000/recipes/search?name=${meal}`)
             .then((response) => response.json())
             .then((data) => {
               if (data) {
@@ -95,12 +135,32 @@ function DatabaseSimulation() {
             });
           setInput("");
         }
+
+        //read off calories
+        else if (second_input === "calories" || second_input === "calorie") {
+          fetch(`http://localhost:4000/recipes/search?calories=${third_input}`)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data) {
+                setRead([...read, ...data]);
+              } else {
+                console.log("Erroring getting the stuff");
+              }
+            });
+          setInput("");
+        }
       }
 
       //update
-      if (first_input === "update") {
+      else if (first_input === "update") {
         fetchRecipes();
         setUpdate(true);
+        setInput("");
+      }
+
+      //invalid input
+      else {
+        setInvalidInput(true);
         setInput("");
       }
       e.preventDefault();
@@ -125,9 +185,9 @@ function DatabaseSimulation() {
       <DatabaseDirectionsDiv>
         <h1>Database</h1>
         <h2>create &lt;name&gt; &lt;calories&gt; &lt;description&gt;</h2>
-        <h2>read id &lt;value&gt; read name  &lt;value&gt;</h2>
+        <h2>read id &lt;id&gt;, read name  &lt;name&gt;, read calories  &lt;calories&gt;</h2>
         <h2>update</h2>
-        <h2>delete &lt;id&gt;</h2>
+        <h2>delete id &lt;id&gt;, delete name &lt;name&gt;, delete calories &lt;calories&gt;</h2>
       </DatabaseDirectionsDiv>
       <DatabaseSearchBarForm>
         <input
@@ -136,7 +196,9 @@ function DatabaseSimulation() {
           type="text"
           onChange={(e) => {
             setInput(e.target.value);
+            setReadState(false);
             setUpdate(false);
+            setInvalidInput(false);
             setRead([]);
           }}
           value={input}
@@ -144,7 +206,7 @@ function DatabaseSimulation() {
         ></input>
       </DatabaseSearchBarForm>
       <RenderTable>
-        <thead>
+        <thead>{(update || readState) &&
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -153,6 +215,7 @@ function DatabaseSimulation() {
             <th>Cuisine</th>
             <th>Image</th>
           </tr>
+        }
         </thead>
         <tbody>
           {update && //user enters update
@@ -172,7 +235,7 @@ function DatabaseSimulation() {
                 </td>
               </tr>
             ))}
-          {read.map((recipe) => ( //user enters read id <idnumber>
+          {readState && read.map((recipe) => ( //user enters read id <idnumber>
             <tr>
               <td>{recipe.shortId}</td>
               <td>{recipe.name}</td>
@@ -184,6 +247,14 @@ function DatabaseSimulation() {
               </td>
             </tr>
           ))}
+        </tbody>
+        <tbody>
+          {
+            invalidInput && <tr>
+              <td>Invalid Input</td>
+            </tr>
+          }
+
         </tbody>
       </RenderTable>
     </div>
