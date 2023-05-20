@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {StyledNav} from "./Styles";
+import { StyledNav } from "./Styles";
 function Nav() {
   return (
     <StyledNav>

@@ -110,6 +110,11 @@ export const DisplaySearch = styled.div`
   margin-top: 20px;
   margin-left: 20px;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .image {
     width: 150px;
     height: 150px;
@@ -217,7 +222,7 @@ export const RenderTable = styled.table`
     padding: 10px;
     border: 1px solid #ddd;
   }
-  th{
+  th {
     background-color: #f2f2f2;
   }
   .recipe-image {
@@ -229,3 +234,11 @@ export const RenderTable = styled.table`
   }
 `;
 
+export const RecipeDetailDiv = styled.div`
+    .image {
+      width: 150px;
+      height: 150px;
+      border-radius: 75%;
+      border: 2px solid black;
+    }
+`;

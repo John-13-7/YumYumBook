@@ -31,6 +31,8 @@ function DatabaseSimulation() {
         const des = inp.slice(index + 1).join(" ");
         const imgi = "./recipe_images/pizza.jpg";
         const cui = "temp";
+        const ing = "temp";
+        const ins = "temp";
         const post = {
           method: "POST",
           body: JSON.stringify({
@@ -39,6 +41,8 @@ function DatabaseSimulation() {
             description: des,
             image: imgi,
             cuisine: cui,
+            ingredients: ing,
+            instructions: ins
           }),
           headers: {
             "Content-Type": "application/json",

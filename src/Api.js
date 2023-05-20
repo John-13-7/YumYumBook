@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.post("/recipes", (req, res) => {
-  const { name, calories, description, image, cuisine } = req.body;
+  const { name, calories, description, image, cuisine, ingredients, directions } = req.body;
   const new_recipe = {
     shortId: shortid.generate(),
     name,
@@ -21,6 +21,8 @@ app.post("/recipes", (req, res) => {
     description,
     image,
     cuisine,
+    ingredients,
+    directions
   };
   recipes.push(new_recipe);
   res.status(201).json(new_recipe);

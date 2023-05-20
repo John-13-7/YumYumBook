@@ -51,7 +51,6 @@ function Lookup() {
       );
       setFilteredRecipes([...filteredRecipes, ...lookup_filter]);
     }
-
   }
 
   function fetchRecipes() {
@@ -83,18 +82,24 @@ function Lookup() {
       </LookupSearchBar>
       <DisplaySearch>
         {filteredRecipes.map((recipe) => (
-          <div className="recipe-card">
-            <img src={recipe.image} alt="Recipe" className="image" />
-            <h4>{recipe.name}</h4>
-            <h5>{recipe.calories}</h5>
-            <h5>{recipe.description}</h5>
-            <h5>{recipe.cuisine}</h5>
-          </div>
+          <a
+            key={recipe.id}
+            href={`/lookup/${recipe.name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="recipe-card">
+              <img src={recipe.image} alt="Recipe" className="image" />
+              <h4>{recipe.name}</h4>
+              <h5>{recipe.calories}</h5>
+              <h5>{recipe.description}</h5>
+              <h5>{recipe.cuisine}</h5>
+            </div>
+          </a>
         ))}
       </DisplaySearch>
     </div>
   );
 }
-
 
 export default Lookup;
