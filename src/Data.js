@@ -345,7 +345,7 @@ const recipes = [
     description:
       "Creamy and flavorful arborio rice cooked with mushrooms and parmesan cheese.",
     image: "./recipe_images/mushroom_risotto.jpg",
-    cuisine: "Italy",
+    cuisine: "Italian",
     ingredients: "arborio rice, mushrooms, onion, garlic, vegetable broth, white wine, butter, Parmesan cheese, fresh thyme, salt, black pepper",
     instructions: "In a saucepan, heat vegetable broth and keep it warm on low heat. In a separate large pot, melt butter over medium heat. Sauté diced onion until translucent, then add minced garlic and sliced mushrooms. Cook until the mushrooms release their moisture and become tender. Add arborio rice to the pot and stir to coat the rice with butter. Pour in white wine and cook until it evaporates. Begin adding the warm vegetable broth to the pot, one ladleful at a time, stirring frequently. Wait for the liquid to be absorbed before adding more broth. Continue this process until the rice is cooked al dente and has a creamy texture. Stir in grated Parmesan cheese, fresh thyme leaves, salt, and black pepper. Remove from heat and let it rest for a few minutes. Serve the Mushroom Risotto hot, garnished with additional Parmesan cheese and thyme leaves if desired."
   },

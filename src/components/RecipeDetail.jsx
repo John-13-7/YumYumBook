@@ -16,6 +16,11 @@ function RecipeDetail() {
       .catch((error) => console.error(error));
   }
 
+  const renderIngredients = (recipe) => {
+    const des = recipe.ingredients.split(",");
+    return des.map((ingredient, index) => <p key={index}>{ingredient.trim()}</p>);
+  };
+
   //Get the recipes
   useEffect(() => {
     fetchRecipes();
@@ -25,12 +30,18 @@ function RecipeDetail() {
   return (
     <RecipeDetailDiv>
       {recipe ? (
-        <div>
-            <img src={recipe.image} alt="Recipe" className="image"/>
-          <h2>{recipe.name}</h2>
-          <p>{recipe.calories}</p>
-          <p>{recipe.ingredients}</p>
-          <p>{recipe.instructions}</p>
+        <div className="recipe-card">
+          <div className="title">
+            <img src={recipe.image} className="image" />
+            <h2>{recipe.name}</h2>
+            <p className="calories">{recipe.calories} calories</p>
+          </div>
+          <div className="ingredients">
+            <p>{renderIngredients(recipe)}</p>
+            <div className="instructions">
+              <p>{recipe.instructions}</p>
+            </div>
+          </div>
         </div>
       ) : (
         <h2>Recipe not found</h2>

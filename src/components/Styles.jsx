@@ -105,26 +105,38 @@ export const LookupSearchBar = styled.form`
 `;
 export const DisplaySearch = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Display 5 cards per row */
-  grid-gap: 20px; /* Spacing between cards */
+  grid-template-columns: repeat(5, 1fr); 
+  grid-gap: 20px; 
   margin-top: 20px;
   margin-left: 20px;
+  text-align: center;
 
+  h4{
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: "Open-sans", sans-serif;
+  }
+  h5{
+    font-family: "Open-sans", sans-serif;
+    font-style: italic;
+  }
   a {
     text-decoration: none;
     color: inherit;
   }
-
   .image {
     width: 150px;
     height: 150px;
     border-radius: 75%;
     border: 2px solid black;
+    object-fit: cover;
+    margin-bottom: 20px;
   }
   .recipe-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #e6e6e6;
     border-radius: 8px;
     padding: 16px;
@@ -234,11 +246,40 @@ export const RenderTable = styled.table`
   }
 `;
 
+//Recipe Detail
 export const RecipeDetailDiv = styled.div`
+    font-family: "Open-sans", sans-serif;
+    margin-top: 10px;
     .image {
-      width: 150px;
-      height: 150px;
-      border-radius: 75%;
-      border: 2px solid black;
+    width: 350px;
+    height: 350px;
+    border: 2px solid black;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-right: 20px;
     }
+    h2{
+    font-style: italic;
+    }
+    .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+    .calories{
+      font-size: 1.2rem;
+    }
+    .recipe-card {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .ingredients{
+  }
 `;

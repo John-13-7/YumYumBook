@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { LookupSearchBar, DisplaySearch } from "./Styles";
+import ReactCountryFlag from 'react-country-flag';
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
@@ -23,6 +24,29 @@ function Lookup() {
       e.preventDefault();
     }
   }
+
+  const renderFlag = (recipe) => {
+    const flags = {
+      American: "US",
+      Korean: "KR",
+      Mexican: "MX",
+      Chinese: "CN",
+      Greek: "GR",
+      Indian: "IN",
+      Japanese: "JP",
+      Thai: "TH",
+      Italian: "IT"
+    };
+    const flag = flags[recipe.cuisine];
+    if (flag) {
+      return <ReactCountryFlag countryCode={flag} svg />
+    }
+    else {
+      return "meow";
+    }
+  };
+
+
 
   //I could just build it so it gets all the recipes, like input: "mexican chicken 700"
   //checks only if the first input is an integer value
@@ -84,16 +108,16 @@ function Lookup() {
         {filteredRecipes.map((recipe) => (
           <a
             key={recipe.id}
-            href={`/lookup/${recipe.name}`}
+            href={`/${recipe.name}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="recipe-card">
               <img src={recipe.image} alt="Recipe" className="image" />
               <h4>{recipe.name}</h4>
-              <h5>{recipe.calories}</h5>
+              <h5>{recipe.calories} Calories</h5>
               <h5>{recipe.description}</h5>
-              <h5>{recipe.cuisine}</h5>
+              <h3>{renderFlag(recipe)}</h3>
             </div>
           </a>
         ))}

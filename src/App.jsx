@@ -15,7 +15,7 @@ function App() {
         <Route path="/Pricing" element={<FAQ />} />
         <Route path="/DatabaseSimulation" element={<DatabaseSimulation />} />
         <Route path="/Lookup" element={<Lookup />} />
-        <Route path="/Lookup/:name" element={<RecipeDetail />} />
+        <Route path="/:name" element={<RecipeDetail />} />
       </Routes>
     </div>
   );
