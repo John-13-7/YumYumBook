@@ -535,6 +535,26 @@ const recipes = [
     cuisine: "Chinese",
     ingredients: "beef (such as flank steak or sirloin), Sichuan peppercorns, dried chili peppers, garlic, ginger, green onions, soy sauce, rice wine vinegar, sugar, sesame oil, vegetable oil, salt",
     instructions: "Bring a pot of water to a boil. Add the beef and cook until it is just cooked through, about 2-3 minutes. Remove the beef from the pot and let it cool. While the beef is cooling, prepare the sauce. In a small bowl, combine soy sauce, rice wine vinegar, sugar, sesame oil, and salt. Stir until the sugar is dissolved. Once the beef has cooled, slice it thinly against the grain. Heat vegetable oil in a pan or wok over medium heat. Add Sichuan peppercorns, dried chili peppers, minced garlic, minced ginger, and chopped green onions. Stir-fry for a minute until fragrant. Add the sliced beef to the pan and stir-fry for another minute to heat it through. Pour the sauce over the beef and stir to coat everything evenly. Continue cooking for a minute or two to allow the flavors to meld together. Transfer the Boiled Beef in Hot Sauce to a serving dish and garnish with additional chopped green onions if desired. Serve hot with steamed rice or noodles. Enjoy the spicy and flavorful Sichuan dish!"
+  }, 
+  {
+    shortId: shortid.generate(),
+    name: "Carne Asada Burrito",
+    calories: 1300,
+    description: "The classic meaty rollup with an explosion of flavor",
+    image: "./recipe_images/carne_asada_burrito.jpg",
+    cuisine: "Mexican",
+    ingredients: "Tortilla, salt, cheese, Carne Asada, Lettuce, Beans, Rice, Salsa",
+    instructions: "You have a tortilla, chuck everything in, and roll it up. Easy as that."
+  },
+  {
+    shortId: shortid.generate(),
+    name: "Quesadilla",
+    calories: 1000,
+    description: "Cheesy gooey deliciousness all in a folded and flattened tortilla.",
+    image: "./recipe_images/quesadilla.jpg",
+    cuisine: "Mexican",
+    ingredients: "tortilla, cheese",
+    instructions: "Fill up a tortilla with cheese, slam it into a pan, cook on both sides til cheese is melty and gooey, and you've got an amazing meal."
   }
 ];
 
