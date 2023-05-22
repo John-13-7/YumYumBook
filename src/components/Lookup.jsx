@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { LookupSearchBar, DisplaySearch } from "./Styles";
 import ReactCountryFlag from 'react-country-flag';
+import LazyLoad from 'react-lazy-load';
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
@@ -113,7 +114,9 @@ function Lookup() {
             rel="noopener noreferrer"
           >
             <div className="recipe-card">
-              <img src={recipe.image} alt="Recipe" className="image" />
+              <LazyLoad>
+                <img src={recipe.image} alt="Recipe" className="image" />
+              </LazyLoad>
               <h4>{recipe.name}</h4>
               <h5>{recipe.calories} Calories</h5>
               <h5>{recipe.description}</h5>

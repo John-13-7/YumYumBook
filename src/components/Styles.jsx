@@ -109,11 +109,11 @@ export const DisplaySearch = styled.div`
   grid-gap: 20px; 
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 20px;
   text-align: center;
-
   h4{
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Open-sans", sans-serif;
   }
   h5{
@@ -124,6 +124,7 @@ export const DisplaySearch = styled.div`
     text-decoration: none;
     color: inherit;
   }
+  
   .image {
     width: 150px;
     height: 150px;
@@ -132,16 +133,18 @@ export const DisplaySearch = styled.div`
     object-fit: cover;
     margin-bottom: 20px;
   }
+  
   .recipe-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; // This will ensure that the contents are evenly spread
+    height: 500px; // You can change this to fit your needs
     border: 2px solid #e6e6e6;
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    overflow: auto; // This will add a scroll bar if there is overflow
   }
 `;
 

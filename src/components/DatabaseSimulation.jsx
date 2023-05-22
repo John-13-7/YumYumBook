@@ -5,6 +5,8 @@ import {
   DatabaseDirectionsDiv,
   RenderTable,
 } from "./Styles";
+import LazyLoad from 'react-lazy-load';
+
 //simulates a database
 function DatabaseSimulation() {
   const [recipes, setRecipes] = useState([]); // Holds the recipes from the backend
@@ -196,7 +198,7 @@ function DatabaseSimulation() {
       </DatabaseDirectionsDiv>
       <DatabaseSearchBarForm>
         <input
-          placeholder=""
+          placeholder="No SQL injections plz"
           className="search-bar"
           type="text"
           onChange={(e) => {
@@ -236,7 +238,9 @@ function DatabaseSimulation() {
                 <td>{recipe.description}</td>
                 <td>{recipe.cuisine}</td>
                 <td>
-                  <img src={recipe.image} className="recipe-image" />
+                  <LazyLoad>
+                    <img src={recipe.image} className="recipe-image" />
+                  </LazyLoad>
                 </td>
               </tr>
             ))}
@@ -248,7 +252,9 @@ function DatabaseSimulation() {
               <td>{recipe.description}</td>
               <td>{recipe.cuisine}</td>
               <td>
-                <img src={recipe.image} className="recipe-image" />
+                <LazyLoad>
+                  <img src={recipe.image} className="recipe-image" />
+                </LazyLoad>
               </td>
             </tr>
           ))}
