@@ -111,15 +111,18 @@ export const DisplaySearch = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+
   h4{
     margin: 0;
     font-size: 1.5rem;
     font-family: "Open-sans", sans-serif;
   }
+
   h5{
     font-family: "Open-sans", sans-serif;
     font-style: italic;
   }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -145,6 +148,20 @@ export const DisplaySearch = styled.div`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     overflow: auto; // This will add a scroll bar if there is overflow
+  }
+
+  .center-flag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flag{
+    align-items: center;
+  width: 40px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0.5, 0, 0, 0.5);
   }
 `;
 

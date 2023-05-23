@@ -121,7 +121,9 @@ function Lookup() {
               <h4>{recipe.name}</h4>
               <h5>{recipe.calories} Calories</h5>
               <h5>{recipe.description}</h5>
-              <h3>{renderFlag(recipe)}</h3>
+              <div className="center-flag">
+                <h3 className="flag">{renderFlag(recipe)}</h3>
+              </div>
             </div>
           </a>
         ))}
