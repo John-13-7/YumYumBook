@@ -1,12 +1,12 @@
 import renderer from "react-test-renderer";
-import App from "../App";
+import Nav from "../components/Nav";
 import { BrowserRouter } from "react-router-dom";
 
-it("Render App component", () => {
-  const app = renderer.create(
+it("Render Nav Page", () => {
+  const nav = renderer.create(
     <BrowserRouter>
-      <App />
+      <Nav />
     </BrowserRouter>
   );
-  expect(app).toBeTruthy();
+  expect(nav).toBeTruthy();
 });
