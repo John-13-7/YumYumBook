@@ -46,7 +46,7 @@ const recipes = [
     calories: 1500,
     description: "Don't worry, not instant",
     image: "./recipe_images/tonkotsu_ramen.jpg",
-    cuisine: "Chinese",
+    cuisine: "Japanese",
     ingredients: "pork belly, ramen noodles, chicken broth, garlic, ginger, soy sauce, mirin, sesame oil, soft-boiled eggs, green onions, bamboo shoots, seaweed, black garlic oil (optional)",
     instructions: "In a large pot, simmer pork belly, garlic, ginger, soy sauce, mirin, and chicken broth for several hours to make the tonkotsu broth. Cook the ramen noodles according to package instructions and set aside. Prepare soft-boiled eggs by cooking them for about 6-7 minutes, then cool and peel. Slice the pork belly into thin slices. In serving bowls, add cooked ramen noodles and pour the hot tonkotsu broth over them. Top with sliced pork belly, soft-boiled eggs, green onions, bamboo shoots, seaweed, and a drizzle of sesame oil. Add black garlic oil for extra flavor if desired. Serve hot and enjoy."
   },
@@ -146,7 +146,7 @@ const recipes = [
     calories: 550,
     description: "Nice delicious tender fish. Yum.",
     image: "./recipe_images/black_cod.jpg",
-    cuisine: "Japanese",
+    cuisine: "American",
     ingredients: "black cod fillets, miso paste, mirin, sake, sugar",
     instructions: "In a bowl, mix miso paste, mirin, sake, and sugar to create the marinade. Place the black cod fillets in a shallow dish and pour the marinade over them, making sure to coat all sides. Cover the dish with plastic wrap and marinate in the refrigerator for at least 1 hour, or up to 24 hours for a stronger flavor. Preheat the oven to 400°F (200°C). Remove the marinated black cod from the refrigerator and scrape off any excess marinade. Place the fillets on a baking sheet lined with parchment paper. Bake for about 15-20 minutes, or until the fish is cooked through and flakes easily with a fork. Serve the Black Cod hot and enjoy the tender and flavorful fish."
   },
@@ -206,7 +206,7 @@ const recipes = [
     calories: 650,
     description: "Yum fish balls dunked in curry",
     image: "./recipe_images/curry_fishballs.jpg",
-    cuisine: "Chinese",
+    cuisine: "Hong Kong",
     ingredients: "fish balls, curry powder, coconut milk, water, soy sauce, sugar, cornstarch",
     instructions: "In a saucepan, combine curry powder, coconut milk, water, soy sauce, and sugar. Stir until the curry powder is dissolved and the ingredients are well combined. Bring the mixture to a simmer. In a separate bowl, mix cornstarch with a little water to create a slurry. Add the cornstarch slurry to the simmering curry mixture, stirring constantly, until the sauce thickens. Add the fish balls to the curry sauce and simmer for a few minutes until the fish balls are heated through. Serve the Curry Fishballs hot as a snack or with rice as a main dish. Enjoy the combination of flavorful curry and tasty fish balls."
   },
@@ -389,7 +389,7 @@ const recipes = [
     description:
       "Crispy corn tortillas filled with seasoned ground beef, lettuce, tomato, and cheese.",
     image: "./recipe_images/beef_tacos.jpg",
-    cuisine: "American",
+    cuisine: "Mexican",
     ingredients: "ground beef, taco seasoning, corn tortillas, lettuce, tomato, cheese, salsa, sour cream",
     instructions: "In a skillet, brown the ground beef over medium heat. Drain any excess fat. Add taco seasoning to the skillet and stir to coat the beef evenly. Cook for a few more minutes until the beef is fully cooked and the flavors are well combined. Warm the corn tortillas in a separate skillet or in the oven. Fill each tortilla with the seasoned ground beef, shredded lettuce, diced tomato, grated cheese, salsa, and a dollop of sour cream. Fold the tortillas in half or roll them up. Serve the Beef Tacos hot and enjoy the crispy texture and delicious flavors."
   },
@@ -535,6 +535,26 @@ const recipes = [
     cuisine: "Chinese",
     ingredients: "beef (such as flank steak or sirloin), Sichuan peppercorns, dried chili peppers, garlic, ginger, green onions, soy sauce, rice wine vinegar, sugar, sesame oil, vegetable oil, salt",
     instructions: "Bring a pot of water to a boil. Add the beef and cook until it is just cooked through, about 2-3 minutes. Remove the beef from the pot and let it cool. While the beef is cooling, prepare the sauce. In a small bowl, combine soy sauce, rice wine vinegar, sugar, sesame oil, and salt. Stir until the sugar is dissolved. Once the beef has cooled, slice it thinly against the grain. Heat vegetable oil in a pan or wok over medium heat. Add Sichuan peppercorns, dried chili peppers, minced garlic, minced ginger, and chopped green onions. Stir-fry for a minute until fragrant. Add the sliced beef to the pan and stir-fry for another minute to heat it through. Pour the sauce over the beef and stir to coat everything evenly. Continue cooking for a minute or two to allow the flavors to meld together. Transfer the Boiled Beef in Hot Sauce to a serving dish and garnish with additional chopped green onions if desired. Serve hot with steamed rice or noodles. Enjoy the spicy and flavorful Sichuan dish!"
+  }, 
+  {
+    shortId: shortid.generate(),
+    name: "Carne Asada Burrito",
+    calories: 1300,
+    description: "The classic meaty rollup with an explosion of flavor",
+    image: "./recipe_images/carne_asada_burrito.jpg",
+    cuisine: "Mexican",
+    ingredients: "Tortilla, salt, cheese, Carne Asada, Lettuce, Beans, Rice, Salsa",
+    instructions: "You have a tortilla, chuck everything in, and roll it up. Easy as that."
+  },
+  {
+    shortId: shortid.generate(),
+    name: "Quesadilla",
+    calories: 1000,
+    description: "Cheesy gooey deliciousness all in a folded and flattened tortilla.",
+    image: "./recipe_images/quesadilla.jpg",
+    cuisine: "Mexican",
+    ingredients: "tortilla, cheese",
+    instructions: "Fill up a tortilla with cheese, slam it into a pan, cook on both sides til cheese is melty and gooey, and you've got an amazing meal."
   }
 ];
 
