@@ -71,9 +71,10 @@ function Lookup() {
     //name search
     else {
       const lookup_recipe = inp.join(" ");
-      const lookup_filter = recipes.filter((recipe) =>
-        recipe.name.toLowerCase().includes(lookup_recipe.toLowerCase())
-      );
+      const lookup_filter = recipes.filter((recipe) => {
+        let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
+        return recipeName.toLowerCase().includes(lookup_recipe.toLowerCase())
+      });
       setFilteredRecipes([...filteredRecipes, ...lookup_filter]);
     }
   }

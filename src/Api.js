@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
-const { recipes } = require("./Data");
 const shortid = require("shortid");
+const fs = require("fs");
 
 //So it can run locally
 app.use((req, res, next) => {
@@ -12,8 +12,17 @@ app.use((req, res, next) => {
   next();
 });
 
+let recipes = [];
+fs.readFile("./src/recipes.json", "utf8", (err, data) => {
+  if (err) {
+    console.error("Error reading file", err);
+  } else {
+    recipes = JSON.parse(data);
+  }
+});
+
 app.post("/recipes", (req, res) => {
-  const { name, calories, description, image, cuisine, ingredients, directions } = req.body;
+  const { name, calories, description, image, cuisine, ingredients, instructions } = req.body;
   const new_recipe = {
     shortId: shortid.generate(),
     name,
@@ -22,26 +31,32 @@ app.post("/recipes", (req, res) => {
     image,
     cuisine,
     ingredients,
-    directions
+    instructions
   };
   recipes.push(new_recipe);
-  res.status(201).json(new_recipe);
+
+  fs.writeFile("./src/recipes.json", JSON.stringify(recipes, null, 2), "utf8", (err) => {
+    if (err) {
+      console.error("Error writing file", err);
+    } else {
+      res.status(201).json(new_recipe);
+      console.log("Added a new recipe: ", new_recipe);
+    }
+  });
 });
+
 
 //delete
 app.delete("/recipes/delete", (req, res) => {
   const { shortId, name, calories } = req.query;
-  console.log(shortId, name, calories);
   //id
   if (shortId) {
     const recipe_index = recipes.findIndex(
       (recipe) => recipe.shortId === shortId
     );
-    console.log("Recipe index: ", recipe_index);
     if (recipe_index !== -1) {
       recipes.splice(recipe_index, 1); //only removes one item
       res.status(204).send();
-      console.log("Deleted id: ", shortId);
     } else {
       res.status(404).send();
     }
@@ -50,8 +65,10 @@ app.delete("/recipes/delete", (req, res) => {
   //name
   if (name) {
     const recipe_index = recipes.findIndex(
-      (recipe) => recipe.name.toLowerCase() === name.toLowerCase()
-    );
+      (recipe) => {
+        let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
+        return recipeName.toLowerCase() === name.toLowerCase()
+      });
     if (recipe_index !== -1) {
       recipes.splice(recipe_index, 1); //only removes one item
       res.status(204).send();
@@ -63,7 +80,7 @@ app.delete("/recipes/delete", (req, res) => {
   //calories
   if (calories) {
     const filteredIndexes = recipes.map((recipe, index) => {
-      if (recipe.calories === parseInt(calories)) {
+      if (parseInt(recipe.calories) === parseInt(calories)) {
         return index;
       }
     }).filter(index => index !== undefined);
@@ -72,6 +89,15 @@ app.delete("/recipes/delete", (req, res) => {
       recipes.splice(index, 1);
     })
   }
+
+  //made the deletion permament
+  fs.writeFile("./src/recipes.json", JSON.stringify(recipes, null, 2), "utf8", (err) => {
+    if (err) {
+      console.error("Error writing file", err);
+    } else {
+      console.log("Deleted a recipe", shortId ? shortId : name ? name : calories);
+    }
+  });
 });
 
 //get all the recipes
@@ -90,7 +116,10 @@ app.get("/recipes/search", (req, res) => {
   }
 
   if (name) {
-    const recipe = recipes.find((recipe) => recipe.name.toLowerCase() === name.toLowerCase());
+    const recipe = recipes.find((recipe) => {
+      let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
+      return recipeName.toLowerCase() === name.toLowerCase()
+    });
     console.log("Returning name: ", recipe);
     return res.json(recipe);
   }
@@ -102,7 +131,6 @@ app.get("/recipes/search", (req, res) => {
     console.log("Returning calories: ", recipe);
     return res.json(recipe);
   }
-
   res.status(400).send("Invalid query parameters");
 });
 
