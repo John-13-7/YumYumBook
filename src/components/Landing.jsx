@@ -8,12 +8,11 @@ function Landing() {
         <h1 className="yyb">YumYumBook</h1>
       </div>
       <p>
-        YumYumBook is an open-source api for everyone to use. No discrimmination
-        here, no Ronald Reagan or Richard Nixon here!
+        YumYumBook is an open-source api for everyone to use. 
       </p>
       <p>
         Feel free to take a look around. There's no hidden costs,
-        environmentally safe, and Vegan.
+        and we have recipes for all, vegans, vegetarians, pescatarians, everyone!
       </p>
     </StyledLanding>
   );
