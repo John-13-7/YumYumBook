@@ -528,5 +528,15 @@
     "cuisine": "Mexican",
     "ingredients": "tortilla, cheese",
     "instructions": "Fill up a tortilla with cheese, slam it into a pan, cook on both sides til cheese is melty and gooey, and you've got an amazing meal."
+  },
+  {
+    "shortId": "54",
+    "name": "Spicy Diced Chicken",
+    "calories": 500,
+    "description": "Spicy Chicken Stir-Fry with Dried Chilies: Fiery and savory chicken dish with aromatic spices and vibrant chilies.",
+    "image": "./recipe_images/Spicy_Diced_Chicken.jpg",
+    "cuisine": "Chinese",
+    "ingredients": "Chicken breast, water chestnut, pickled pepper, egg, starch.",
+    "instructions": "Stir-fry diced chicken with dried chilies to make a spicy and flavorful dish."
   }
 ]
