@@ -6,6 +6,8 @@ import { RecipeDetailDiv } from "./Styles";
 function RecipeDetail() {
   const { name } = useParams();
   const [recipes, setRecipes] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
+  const [input, setInput] = useState("");
 
   const recipe = recipes.find((recipe) => recipe.name === name);
 
@@ -16,9 +18,8 @@ function RecipeDetail() {
       .catch((error) => console.error(error));
   }
 
-  const renderIngredients = (recipe) => {
-    const des = recipe.ingredients.split(",");
-    return des.map((ingredient, index) => <p key={index}>{ingredient.trim()}</p>);
+  const handleDoubleClick = () => {
+    setIsEdit(true);
   };
 
   //Get the recipes
@@ -30,18 +31,22 @@ function RecipeDetail() {
   return (
     <RecipeDetailDiv>
       {recipe ? (
-        <div className="recipe-card">
-          <div className="title">
-            <img src={recipe.image} className="image" />
-            <h2>{recipe.name}</h2>
-            <p className="calories">{recipe.calories} calories</p>
-          </div>
-          <div className="ingredients">
-            <p>{renderIngredients(recipe)}</p>
-            <div className="instructions">
-              <p>{recipe.instructions}</p>
-            </div>
-          </div>
+        <div className="recipe-card" onDoubleClick={handleDoubleClick}>
+          <img src={recipe.image} className="image" />
+          <h2 className="name">{recipe.name}</h2>
+          <p className="calories">{recipe.calories} calories</p>
+          <ul>
+            {recipe.ingredients.split(",").map((r) => {
+              const sentence = r.trim();
+              return sentence && <li className="ingredients">{sentence}</li>;
+            })}
+          </ul>
+          <ul>
+            {recipe.instructions.split(".").map((r) => {
+              const sentence = r.trim();
+              return sentence && <li className="instructions">{sentence}</li>;
+            })}
+          </ul>
         </div>
       ) : (
         <h2>Recipe not found</h2>
