@@ -36,7 +36,9 @@ function Lookup() {
       Indian: "IN",
       Japanese: "JP",
       Thai: "TH",
-      Italian: "IT"
+      Italian: "IT",
+      // tchen285
+      MiddleEast: "ME"
     };
     const flag = flags[recipe.cuisine];
     if (flag) {
