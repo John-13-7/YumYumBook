@@ -1,6 +1,9 @@
 # Running the Project
 npm install node express shortid react enzyme
 npm i react-lazy-load
+npm i framer-motion --legacy-peer-dep
+npm install
+npm i react-icons
 npm install --save-dev  jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer jest-environment-jsdom
 
 # Interface
