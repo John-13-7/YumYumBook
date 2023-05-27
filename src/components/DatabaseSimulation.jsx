@@ -160,7 +160,7 @@ function DatabaseSimulation() {
       }
 
       //update
-      else if (first_input === "update") {
+      else if (first_input === "print" || first_input === "Print") {
         fetchRecipes();
         setUpdate(true);
         setInput("");
@@ -197,7 +197,7 @@ function DatabaseSimulation() {
           read id &lt;id&gt;, read name &lt;name&gt;, read calories
           &lt;calories&gt;
         </h2>
-        <h2>update</h2>
+        <h2>print</h2>
         <h2>
           delete id &lt;id&gt;, delete name &lt;name&gt;, delete calories
           &lt;calories&gt;

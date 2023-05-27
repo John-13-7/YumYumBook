@@ -169,7 +169,7 @@ export const DisplaySearch = styled.div`
 //FAQ
 export const StyledFAQ = styled.div`
   .yyb {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: "Lobster", cursive;
     color: orange;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
@@ -178,7 +178,7 @@ export const StyledFAQ = styled.div`
 
   h2 {
     margin-left: 20px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: "Red Hat Display", sans-serif;
   }
 `;
