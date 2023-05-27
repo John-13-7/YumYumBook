@@ -5,7 +5,7 @@ import {
   DatabaseDirectionsDiv,
   RenderTable,
 } from "./Styles";
-import LazyLoad from 'react-lazy-load';
+import LazyLoad from "react-lazy-load";
 
 //simulates a database
 function DatabaseSimulation() {
@@ -44,7 +44,7 @@ function DatabaseSimulation() {
             image: imgi,
             cuisine: cui,
             ingredients: ing,
-            instructions: ins
+            instructions: ins,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -74,7 +74,6 @@ function DatabaseSimulation() {
 
         //delete off name
         else if (second_input === "name") {
-
           fetch(`http://localhost:4000/recipes/delete?name=${third_input}`, {
             method: "DELETE",
           })
@@ -91,9 +90,12 @@ function DatabaseSimulation() {
         //delete off calories
         else if (second_input === "calories") {
           console.log(inp);
-          fetch(`http://localhost:4000/recipes/delete?calories=${third_input}`, {
-            method: "DELETE",
-          })
+          fetch(
+            `http://localhost:4000/recipes/delete?calories=${third_input}`,
+            {
+              method: "DELETE",
+            }
+          )
             .then((response) => {
               if (response.ok) {
                 fetchRecipes();
@@ -110,7 +112,6 @@ function DatabaseSimulation() {
         }
         setInput(""); //resets the search bar to empty
       }
-
 
       //read off id
       else if (first_input === "read" || first_input === "Read") {
@@ -192,9 +193,15 @@ function DatabaseSimulation() {
       <DatabaseDirectionsDiv>
         <h1>Database</h1>
         <h2>create &lt;name&gt; &lt;calories&gt; &lt;description&gt;</h2>
-        <h2>read id &lt;id&gt;, read name  &lt;name&gt;, read calories  &lt;calories&gt;</h2>
+        <h2>
+          read id &lt;id&gt;, read name &lt;name&gt;, read calories
+          &lt;calories&gt;
+        </h2>
         <h2>update</h2>
-        <h2>delete id &lt;id&gt;, delete name &lt;name&gt;, delete calories &lt;calories&gt;</h2>
+        <h2>
+          delete id &lt;id&gt;, delete name &lt;name&gt;, delete calories
+          &lt;calories&gt;
+        </h2>
       </DatabaseDirectionsDiv>
       <DatabaseSearchBarForm>
         <input
@@ -213,16 +220,17 @@ function DatabaseSimulation() {
         ></input>
       </DatabaseSearchBarForm>
       <RenderTable>
-        <thead>{(update || readState) &&
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Calories</th>
-            <th>Description</th>
-            <th>Cuisine</th>
-            <th>Image</th>
-          </tr>
-        }
+        <thead>
+          {(update || readState) && (
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Calories</th>
+              <th>Description</th>
+              <th>Cuisine</th>
+              <th>Image</th>
+            </tr>
+          )}
         </thead>
         <tbody>
           {update && //user enters update
@@ -244,28 +252,32 @@ function DatabaseSimulation() {
                 </td>
               </tr>
             ))}
-          {readState && read.map((recipe) => ( //user enters read id <idnumber>
-            <tr>
-              <td>{recipe.shortId}</td>
-              <td>{recipe.name}</td>
-              <td>{recipe.calories}</td>
-              <td>{recipe.description}</td>
-              <td>{recipe.cuisine}</td>
-              <td>
-                <LazyLoad>
-                  <img src={recipe.image} className="recipe-image" />
-                </LazyLoad>
-              </td>
-            </tr>
-          ))}
+          {readState &&
+            read.map(
+              (
+                recipe //user enters read id <idnumber>
+              ) => (
+                <tr>
+                  <td>{recipe.shortId}</td>
+                  <td>{recipe.name}</td>
+                  <td>{recipe.calories}</td>
+                  <td>{recipe.description}</td>
+                  <td>{recipe.cuisine}</td>
+                  <td>
+                    <LazyLoad>
+                      <img src={recipe.image} className="recipe-image" />
+                    </LazyLoad>
+                  </td>
+                </tr>
+              )
+            )}
         </tbody>
         <tbody>
-          {
-            invalidInput && <tr>
+          {invalidInput && (
+            <tr>
               <td>Invalid Input</td>
             </tr>
-          }
-
+          )}
         </tbody>
       </RenderTable>
     </div>

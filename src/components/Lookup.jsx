@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { LookupSearchBar, DisplaySearch } from "./Styles";
-import ReactCountryFlag from 'react-country-flag';
-import LazyLoad from 'react-lazy-load';
+import ReactCountryFlag from "react-country-flag";
+import LazyLoad from "react-lazy-load";
+import { motion } from "framer-motion";
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
@@ -36,18 +37,15 @@ function Lookup() {
       Indian: "IN",
       Japanese: "JP",
       Thai: "TH",
-      Italian: "IT"
+      Italian: "IT",
     };
     const flag = flags[recipe.cuisine];
     if (flag) {
-      return <ReactCountryFlag countryCode={flag} svg />
-    }
-    else {
-      return "meow";
+      return <ReactCountryFlag countryCode={flag} svg />;
+    } else {
+      return "Flag not found";
     }
   };
-
-
 
   //I could just build it so it gets all the recipes, like input: "mexican chicken 700"
   //checks only if the first input is an integer value
@@ -72,8 +70,10 @@ function Lookup() {
     else {
       const lookup_recipe = inp.join(" ");
       const lookup_filter = recipes.filter((recipe) => {
-        let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
-        return recipeName.toLowerCase().includes(lookup_recipe.toLowerCase())
+        let recipeName = Array.isArray(recipe.name)
+          ? recipe.name.join(" ")
+          : recipe.name;
+        return recipeName.toLowerCase().includes(lookup_recipe.toLowerCase());
       });
       setFilteredRecipes([...filteredRecipes, ...lookup_filter]);
     }
@@ -114,17 +114,22 @@ function Lookup() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="recipe-card">
-              <LazyLoad>
-                <img src={recipe.image} alt="Recipe" className="image" />
-              </LazyLoad>
-              <h4>{recipe.name}</h4>
-              <h5>{recipe.calories} Calories</h5>
-              <h5>{recipe.description}</h5>
-              <div className="center-flag">
-                <h3 className="flag">{renderFlag(recipe)}</h3>
+            <motion.div
+              animate={{ opacity: 1, transition: { duration: 2 } }}
+              initial={{ opacity: 0 }}
+            >
+              <div className="recipe-card">
+                <LazyLoad>
+                  <img src={recipe.image} alt="Recipe" className="image" />
+                </LazyLoad>
+                <h4>{recipe.name}</h4>
+                <h5>{recipe.calories} Calories</h5>
+                <h5>{recipe.description}</h5>
+                <div className="center-flag">
+                  <h3 className="flag">{renderFlag(recipe)}</h3>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </a>
         ))}
       </DisplaySearch>
