@@ -271,8 +271,10 @@ export const RecipeDetailDiv = styled.div`
     font-style: italic;
   }
   .title {
+
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -282,7 +284,8 @@ export const RecipeDetailDiv = styled.div`
   }
   .recipe-card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
     border: 2px solid #e6e6e6;
     border-radius: 8px;
     padding: 16px;

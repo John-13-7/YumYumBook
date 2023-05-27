@@ -528,5 +528,35 @@
     "cuisine": "Mexican",
     "ingredients": "tortilla, cheese",
     "instructions": "Fill up a tortilla with cheese, slam it into a pan, cook on both sides til cheese is melty and gooey, and you've got an amazing meal."
+  },
+  {
+    "shortId": "54",
+    "name": "Spicy Diced Chicken",
+    "calories": 500,
+    "description": "Spicy Chicken Stir-Fry with Dried Chilies: Fiery and savory chicken dish with aromatic spices and vibrant chilies.",
+    "image": "./recipe_images/Spicy_Diced_Chicken.jpg",
+    "cuisine": "Chinese",
+    "ingredients": "Chicken breast, water chestnut, pickled pepper, egg, starch.",
+    "instructions": "Stir-fry diced chicken with dried chilies to make a spicy and flavorful dish."
+  },
+  { 
+    "shortId": "55",
+    "name": "Pork Belly Chicken",
+    "calories": 433,
+    "description": "Chicken with pork belly is a famous traditional Hakka dish in Guangdong. It refers to stuffing a cleaned whole chicken into a pork belly, and then cooking it in soup.",
+    "image": "./recipe_images/pork_belly_chicken.jpg",
+    "cuisine": "Chinese",
+    "ingredients": "Chicken and Pork Belly, pepper, astragalus, codonopsis, yam, red dates, wolfberry, polygonatum and other ingredients and medicinal materials.",
+    "instructions": "Blanch the cleaned chicken nuggets. Put the pork belly in the casserole, add white radish, add the blanched chicken nuggets, ingredients and water, cover and boil, and simmer for 60 minutes on low heat."
+  },
+  { 
+    "shortId": "56",
+    "name": "Tiger Skin Chicken Claw",
+    "calories": 293,
+    "description": "Tiger skin and chicken feet is a famous local dish with delicious color, flavor and taste, which belongs to Cantonese cuisine. The skin is crispy and the meat is tender, the color is full, and it is very attractive. It is a home-cooked side dish.",
+    "image": "./recipe_images/Tiger_Skin_Chicken_Claw",
+    "cuisine": "Chinese",
+    "ingredients": "Chicken feet, ginger, garlic, dried chili, sugar, salt, five-spice powder, cooking wine, light soy sauce, dark soy sauce, oyster sauce, white pepper, black bean sauce, sesame oil, white vinegar, honey.",
+    "instructions": "Soak the chicken feet for one hour, cut off the toes, then cut them in half, put cold water into the pot, add rice wine and ginger, blanch in water for five minutes, remove the chicken feet, and drain the water. Put it in an oil pan and fry it, put it in a basin of cold water and soak it for 40 minutes, put the peanuts, ginger, green onion, and garlic into the casserole."
   }
 ]
