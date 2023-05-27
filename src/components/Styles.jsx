@@ -271,7 +271,6 @@ export const RecipeDetailDiv = styled.div`
     font-style: italic;
   }
   .title {
-
     display: flex;
     flex-direction: column;
 
