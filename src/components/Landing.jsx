@@ -1,5 +1,5 @@
 import React from "react";
-import{StyledLanding} from "./Styles";
+import { StyledLanding } from "./Styles";
 function Landing() {
   return (
     <StyledLanding>
@@ -8,12 +8,11 @@ function Landing() {
         <h1 className="yyb">YumYumBook</h1>
       </div>
       <p>
-        YumYumBook is an open-source api for everyone to use. 
+        YumYumBook is a collection of customizable recipes that are free for all
+        users
       </p>
-      <p>
-        Feel free to take a look around. There's no hidden costs,
-        and we have recipes for all, vegans, vegetarians, pescatarians, everyone!
-      </p>
+      <p>Create and delete recipes:</p>
+      <p>Lookup and edit recipes:</p>
     </StyledLanding>
   );
 }

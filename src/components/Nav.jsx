@@ -18,7 +18,7 @@ function Nav() {
       </li>
       <li>
         {" "}
-        <Link to="/DatabaseSimulation">Database Simulation</Link>
+        <Link to="/DatabaseSimulation">Database</Link>
       </li>
     </StyledNav>
   );
