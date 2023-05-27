@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BsArrowRightSquareFill } from "react-icons/bs";
 
 //App
 export const StyledApp = styled.div`
@@ -140,7 +141,7 @@ export const DisplaySearch = styled.div`
   .recipe-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; // This will ensure that the contents are evenly spread
+    justify-content: space-between;
     height: 500px; // You can change this to fit your needs
     border: 2px solid #e6e6e6;
     border-radius: 8px;
@@ -167,29 +168,8 @@ export const DisplaySearch = styled.div`
 
 //FAQ
 export const StyledFAQ = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-
-  .left-bar {
-    position: fixed;
-    top: 150px;
-    bottom: 20px;
-    width: 10px;
-    background-color: #f3ff07;
-  }
-
-  .special-paragraph {
-    margin-top: -20px;
-  }
-
-  .content {
-    margin: 0 10px 0 20px;
-  }
   .yyb {
-    display: inline-block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: "Lobster", cursive;
     color: orange;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
@@ -197,20 +177,41 @@ export const StyledFAQ = styled.div`
   }
 
   h2 {
-    font-size: 2rem;
+    margin-left: 20px;
+    font-size: 3rem;
     font-family: "Red Hat Display", sans-serif;
-    margin-left: 10px;
-  }
-
-  p {
-    font-family: "Open-sans", sans-serif;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    margin-left: 50px;
   }
 `;
 
+export const FAQItem = styled.div`
+  p {
+    font-family: "Open-sans", sans-serif;
+    font-size: 1.5rem;
+    display: inline;
+  }
+`;
+
+export const StyledArrow = styled(BsArrowRightSquareFill)`
+  margin-left: 20px;
+  font-size: 1.5rem;
+  margin-right: 10px;
+`;
+
 //Database Simulation
+export const DatabaseDirectionsDiv = styled.div`
+  h1 {
+    font-family: "Red Hat Display", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-family: "Open-sans", sans-serif;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.2rem;
+  }
+`;
+
 export const DatabaseSearchBarForm = styled.form`
   display: flex;
   justify-content: center;
@@ -229,37 +230,25 @@ export const DatabaseSearchBarForm = styled.form`
     }
   }
 `;
-export const DatabaseDirectionsDiv = styled.div`
-  h1 {
-    font-family: "Red Hat Display", sans-serif;
-    text-align: center;
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-family: "Open-sans", sans-serif;
-    text-align: center;
-    font-weight: normal;
-    font-size: 1.2rem;
-  }
-`;
+
 export const RenderTable = styled.table`
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
   border-collapse: collapse;
   font-family: "Open-sans", sans-serif;
   font-size: 1.2rem;
   th,
   td {
     text-align: center;
-    padding: 10px;
     border: 1px solid #ddd;
+    padding: 10px;
   }
   th {
     background-color: #f2f2f2;
   }
   .recipe-image {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 2px solid black;
     object-fit: cover;
@@ -282,6 +271,10 @@ export const RecipeDetailDiv = styled.div`
     font-style: italic;
   }
   .title {
+
+    display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
     text-align: center;
