@@ -38,8 +38,8 @@ function Lookup() {
       Japanese: "JP",
       Thai: "TH",
       Italian: "IT",
-      MiddleEast: "ME"
-      French: "FR"
+      MiddleEast: "ME",
+      French: "FR",
     };
     const flag = flags[recipe.cuisine];
     if (flag) {
