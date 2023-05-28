@@ -59,11 +59,43 @@ export const StyledLanding = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 50px;
 
   .heading {
     display: inline-block;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  .buttons {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    grid-gap: 25px;
+    button {
+      font-family: "Open-sans", sans-serif;
+      background-color: #e8e8e8;
+      border: none;
+      padding: 50px;
+      border-radius: 10px;
+      font-size: 25px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
   h1 {
     display: inline-block;
     font-family: "Red Hat Display", sans-serif;
