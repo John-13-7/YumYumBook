@@ -11,7 +11,12 @@ function RecipeDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdate, setIsUpdate] = useState(false);
 
-  const recipe = recipes.find((recipe) => recipe.name === name);
+  const recipe = recipes.find((recipe) =>
+    Array.isArray(recipe.name)
+      ? recipe.name.join(" ").toLowerCase() ===
+        name.replace(",", " ").toLowerCase()
+      : recipe.name.toLowerCase() === name.toLowerCase()
+  );
 
   function fetchRecipes() {
     fetch("http://localhost:4000/recipes")
@@ -52,6 +57,7 @@ function RecipeDetail() {
   useEffect(() => {
     fetchRecipes();
     console.log(recipes);
+    console.log("recipe: ", recipe);
   }, []);
 
   return (
@@ -59,7 +65,9 @@ function RecipeDetail() {
       {recipe && !isUpdate ? (
         <div className="recipe-card" onDoubleClick={handleDoubleClick}>
           <div className="first">
-            <h2 className="name">{recipe.name}</h2>
+            <h2 className="name">
+              {Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name}
+            </h2>
             <img src={recipe.image} className="image" onLoad={handleImage} />
             <div className="second">
               <p className="calories">{recipe.calories} calories</p>

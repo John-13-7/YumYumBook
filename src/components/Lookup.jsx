@@ -46,6 +46,8 @@ function Lookup() {
       Italian: "IT",
       Lebanon: "LB",
       French: "FR",
+      //new recipes default with american flag
+      temp: "US",
     };
     const flag = flags[recipe.cuisine];
     if (flag) {
@@ -133,7 +135,11 @@ function Lookup() {
                   className="image"
                   onLoad={handleImage}
                 />
-                <h4>{recipe.name}</h4>
+                <h4>
+                  {Array.isArray(recipe.name)
+                    ? recipe.name.join(" ")
+                    : recipe.name}
+                </h4>
                 <h5>{recipe.calories} Calories</h5>
                 <h5>{recipe.description}</h5>
                 <div className="center-flag">
