@@ -22,7 +22,16 @@ fs.readFile("./src/recipes.json", "utf8", (err, data) => {
 });
 
 app.post("/recipes", (req, res) => {
-  const { name, calories, description, image, cuisine, ingredients, instructions } = req.body;
+  const {
+    name,
+    calories,
+    description,
+    image,
+    cuisine,
+    ingredients,
+    instructions,
+  } = req.body;
+
   const new_recipe = {
     shortId: shortid.generate(),
     name,
@@ -31,20 +40,24 @@ app.post("/recipes", (req, res) => {
     image,
     cuisine,
     ingredients,
-    instructions
+    instructions,
   };
   recipes.push(new_recipe);
 
-  fs.writeFile("./src/recipes.json", JSON.stringify(recipes, null, 2), "utf8", (err) => {
-    if (err) {
-      console.error("Error writing file", err);
-    } else {
-      res.status(201).json(new_recipe);
-      console.log("Added a new recipe: ", new_recipe);
+  fs.writeFile(
+    "./src/recipes.json",
+    JSON.stringify(recipes, null, 2),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.error("Error writing file", err);
+      } else {
+        res.status(201).json(new_recipe);
+        console.log("Added a new recipe: ", new_recipe);
+      }
     }
-  });
+  );
 });
-
 
 //delete
 app.delete("/recipes/delete", (req, res) => {
@@ -64,11 +77,12 @@ app.delete("/recipes/delete", (req, res) => {
 
   //name
   if (name) {
-    const recipe_index = recipes.findIndex(
-      (recipe) => {
-        let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
-        return recipeName.toLowerCase() === name.toLowerCase()
-      });
+    const recipe_index = recipes.findIndex((recipe) => {
+      let recipeName = Array.isArray(recipe.name)
+        ? recipe.name.join(" ")
+        : recipe.name;
+      return recipeName.toLowerCase() === name.toLowerCase();
+    });
     if (recipe_index !== -1) {
       recipes.splice(recipe_index, 1); //only removes one item
       res.status(204).send();
@@ -79,25 +93,35 @@ app.delete("/recipes/delete", (req, res) => {
 
   //calories
   if (calories) {
-    const filteredIndexes = recipes.map((recipe, index) => {
-      if (parseInt(recipe.calories) === parseInt(calories)) {
-        return index;
-      }
-    }).filter(index => index !== undefined);
+    const filteredIndexes = recipes
+      .map((recipe, index) => {
+        if (parseInt(recipe.calories) === parseInt(calories)) {
+          return index;
+        }
+      })
+      .filter((index) => index !== undefined);
     filteredIndexes.sort((a, b) => b - a);
-    filteredIndexes.forEach(index => {
+    filteredIndexes.forEach((index) => {
       recipes.splice(index, 1);
-    })
+    });
   }
 
   //made the deletion permament
-  fs.writeFile("./src/recipes.json", JSON.stringify(recipes, null, 2), "utf8", (err) => {
-    if (err) {
-      console.error("Error writing file", err);
-    } else {
-      console.log("Deleted a recipe", shortId ? shortId : name ? name : calories);
+  fs.writeFile(
+    "./src/recipes.json",
+    JSON.stringify(recipes, null, 2),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.error("Error writing file", err);
+      } else {
+        console.log(
+          "Deleted a recipe",
+          shortId ? shortId : name ? name : calories
+        );
+      }
     }
-  });
+  );
 });
 
 //get all the recipes
@@ -117,8 +141,10 @@ app.get("/recipes/search", (req, res) => {
 
   if (name) {
     const recipe = recipes.find((recipe) => {
-      let recipeName = Array.isArray(recipe.name) ? recipe.name.join(" ") : recipe.name;
-      return recipeName.toLowerCase() === name.toLowerCase()
+      let recipeName = Array.isArray(recipe.name)
+        ? recipe.name.join(" ")
+        : recipe.name;
+      return recipeName.toLowerCase() === name.toLowerCase();
     });
     console.log("Returning name: ", recipe);
     return res.json(recipe);
@@ -126,7 +152,7 @@ app.get("/recipes/search", (req, res) => {
 
   if (calories) {
     const recipe = recipes.filter(
-      (recipe) => recipe.calories === parseInt(calories)
+      (recipe) => parseInt(recipe.calories) === parseInt(calories)
     );
     console.log("Returning calories: ", recipe);
     return res.json(recipe);

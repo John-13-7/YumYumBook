@@ -2,13 +2,19 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { LookupSearchBar, DisplaySearch } from "./Styles";
 import ReactCountryFlag from "react-country-flag";
-import LazyLoad from "react-lazy-load";
 import { motion } from "framer-motion";
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);
   const [input, setInput] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const transparentPixel =
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC";
+
+  const handleImage = () => {
+    setIsLoading(false);
+  };
 
   function pressed_key(e) {
     if (e.key === "enter" || e.key === "Enter") {
@@ -121,9 +127,12 @@ function Lookup() {
               initial={{ opacity: 0 }}
             >
               <div className="recipe-card">
-                <LazyLoad>
-                  <img src={recipe.image} alt="Recipe" className="image" />
-                </LazyLoad>
+                <img
+                  src={isLoading ? transparentPixel : recipe.image}
+                  alt="Recipe"
+                  className="image"
+                  onLoad={handleImage}
+                />
                 <h4>{recipe.name}</h4>
                 <h5>{recipe.calories} Calories</h5>
                 <h5>{recipe.description}</h5>

@@ -539,7 +539,7 @@
     "ingredients": "Chicken breast, water chestnut, pickled pepper, egg, starch.",
     "instructions": "Stir-fry diced chicken with dried chilies to make a spicy and flavorful dish."
   },
-  { 
+  {
     "shortId": "55",
     "name": "Pork Belly Chicken",
     "calories": 433,
@@ -549,16 +549,17 @@
     "ingredients": "Chicken and Pork Belly, pepper, astragalus, codonopsis, yam, red dates, wolfberry, polygonatum and other ingredients and medicinal materials.",
     "instructions": "Blanch the cleaned chicken nuggets. Put the pork belly in the casserole, add white radish, add the blanched chicken nuggets, ingredients and water, cover and boil, and simmer for 60 minutes on low heat."
   },
-  { 
+  {
     "shortId": "56",
     "name": "Tiger Skin Chicken Claw",
     "calories": 293,
-    "description": "Tiger skin and chicken feet is a famous local dish with delicious color, flavor and taste, which belongs to Cantonese cuisine. The skin is crispy and the meat is tender, the color is full, and it is very attractive. It is a home-cooked side dish.",
-    "image": "./recipe_images/Tiger_Skin_Chicken_Claw",
+    "description": "Tiger skin and chicken feet is a famous local dish with delicious color, flavor and taste, which belongs to Cantonese cuisine.",
+    "image": "./recipe_images/tiger_skin_chicken_claw.jpg",
     "cuisine": "Chinese",
     "ingredients": "Chicken feet, ginger, garlic, dried chili, sugar, salt, five-spice powder, cooking wine, light soy sauce, dark soy sauce, oyster sauce, white pepper, black bean sauce, sesame oil, white vinegar, honey.",
     "instructions": "Soak the chicken feet for one hour, cut off the toes, then cut them in half, put cold water into the pot, add rice wine and ginger, blanch in water for five minutes, remove the chicken feet, and drain the water. Put it in an oil pan and fry it, put it in a basin of cold water and soak it for 40 minutes, put the peanuts, ginger, green onion, and garlic into the casserole."
   },
+
   { 
     "shortId": "57",
     "name": "Smooth Hummus",

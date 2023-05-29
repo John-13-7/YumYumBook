@@ -59,11 +59,43 @@ export const StyledLanding = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 50px;
 
   .heading {
     display: inline-block;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  .buttons {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    grid-gap: 25px;
+    button {
+      font-family: "Open-sans", sans-serif;
+      background-color: #e8e8e8;
+      border: none;
+      padding: 50px;
+      border-radius: 10px;
+      font-size: 25px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
   h1 {
     display: inline-block;
     font-family: "Red Hat Display", sans-serif;
@@ -136,6 +168,8 @@ export const DisplaySearch = styled.div`
     border: 2px solid black;
     object-fit: cover;
     margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .recipe-card {
@@ -258,39 +292,121 @@ export const RenderTable = styled.table`
 //Recipe Detail
 export const RecipeDetailDiv = styled.div`
   font-family: "Open-sans", sans-serif;
-  margin-top: 10px;
-  .image {
-    width: 350px;
-    height: 350px;
-    border: 2px solid black;
-    object-fit: cover;
-    margin-bottom: 20px;
-    margin-right: 20px;
-  }
-  h2 {
-    font-style: italic;
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .calories {
-    font-size: 1.2rem;
-  }
   .recipe-card {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     border: 2px solid #e6e6e6;
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
   }
-  .ingredients {
+
+  .first {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .second {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .third {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    h3 {
+      margin-bottom: -10px;
+    }
+
+    .ingredients {
+      margin-top: 10px;
+    }
+
+    .instructions {
+      margin-top: 10px;
+    }
+  }
+
+  .image {
+    width: 350px;
+    height: 350px;
+    border: 2px solid black;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 40px;
+    margin-right: 30px;
+  }
+
+  .calories {
+    margin-top: 10px;
+  }
+
+  .update {
+    padding: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    font-family: "Open-sans", sans-serif;
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  h2 {
+    font-style: italic;
+  }
+`;
+export const UpdateForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
   }
 `;
