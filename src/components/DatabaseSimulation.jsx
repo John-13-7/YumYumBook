@@ -135,7 +135,6 @@ function DatabaseSimulation() {
         } else if (second_input === "name") {
           const food = inp.slice(2, inp.length);
           const meal = food.join(" ");
-          console.log("read food ", meal);
           fetch(`http://localhost:4000/recipes/search?name=${meal}`)
             .then((response) => response.json())
             .then((data) => {
@@ -263,7 +262,11 @@ function DatabaseSimulation() {
               ) => (
                 <tr>
                   <td>{recipe.shortId}</td>
-                  <td>{recipe.name}</td>
+                  <td>
+                    {Array.isArray(recipe.name)
+                      ? recipe.name.join(" ")
+                      : recipe.name}
+                  </td>
                   <td>{recipe.calories}</td>
                   <td>{recipe.description}</td>
                   <td>{recipe.cuisine}</td>
