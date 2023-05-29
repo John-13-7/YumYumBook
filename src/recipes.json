@@ -559,48 +559,15 @@
     "ingredients": "Chicken feet, ginger, garlic, dried chili, sugar, salt, five-spice powder, cooking wine, light soy sauce, dark soy sauce, oyster sauce, white pepper, black bean sauce, sesame oil, white vinegar, honey.",
     "instructions": "Soak the chicken feet for one hour, cut off the toes, then cut them in half, put cold water into the pot, add rice wine and ginger, blanch in water for five minutes, remove the chicken feet, and drain the water. Put it in an oil pan and fry it, put it in a basin of cold water and soak it for 40 minutes, put the peanuts, ginger, green onion, and garlic into the casserole."
   },
-  {
-    "shortId": "RieVef1S7",
-    "name": [
-      "burger"
-    ],
-    "calories": "69",
-    "description": "temp",
-    "image": "./recipe_images/pizza.jpg",
-    "cuisine": "temp",
-    "ingredients": "temp",
-    "instructions": "temp"
-  },
-  {
-    "shortId": "tN8XhIAto",
-    "name": [
-      "mcburger"
-    ],
-    "calories": "69",
-    "description": "temp",
-    "image": "./recipe_images/pizza.jpg",
-    "cuisine": "temp",
-    "ingredients": "temp",
-    "instructions": "temp"
-  },
-  {
-    "shortId": "nvn6cPk8S",
-    "name": [
-      "la",
-      "girls",
-      "all",
-      "look",
-      "the",
-      "same",
-      "i",
-      "cant",
-      "recognize"
-    ],
-    "calories": "69",
-    "description": "vape",
-    "image": "./recipe_images/pizza.jpg",
-    "cuisine": "temp",
-    "ingredients": "temp",
-    "instructions": "temp"
+
+  { 
+    "shortId": "57",
+    "name": "Smooth Hummus",
+    "calories": 300,
+    "description": "The big daddy chickpea spread can be slathered on anything from a burger or baked potato to the traditional hot pita bread.",
+    "image": "./recipe_images/Hummus.jpg",
+    "cuisine": "MiddleEast",
+    "ingredients": " chickpeas, sesame paste (tahini), garlic, and olive oil.",
+    "instructions": "Blend together chickpeas, lemon juice, tahini, garlic, olive oil, cumin, salt, and water until smooth, then garnish with olive oil, paprika, whole chickpeas, and parsley."
   }
 ]
