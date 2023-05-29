@@ -56,7 +56,7 @@ function DatabaseSimulation() {
           .catch((error) => console.error(error));
       }
 
-      //delete
+      //delete OKAY
       else if (first_input === "delete" || first_input === "Delete") {
         if (second_input === "id") {
           fetch(`http://localhost:4000/recipes/delete?shortId=${third_input}`, {
@@ -72,9 +72,12 @@ function DatabaseSimulation() {
             .catch((error) => console.error(error));
         }
 
-        //delete off name
+        //delete off name OKAY
         else if (second_input === "name") {
-          fetch(`http://localhost:4000/recipes/delete?name=${third_input}`, {
+          const food = inp.slice(2, inp.length);
+          const meal = food.join(" ");
+          console.log("delete name ", meal);
+          fetch(`http://localhost:4000/recipes/delete?name=${meal}`, {
             method: "DELETE",
           })
             .then((response) => {
@@ -88,8 +91,8 @@ function DatabaseSimulation() {
         }
 
         //delete off calories
-        else if (second_input === "calories") {
-          console.log(inp);
+        else if (second_input === "calories" || second_input == "calorie") {
+          console.log("delete calories ", third_input);
           fetch(
             `http://localhost:4000/recipes/delete?calories=${third_input}`,
             {
@@ -128,10 +131,11 @@ function DatabaseSimulation() {
             });
           setInput("");
 
-          //read off name
+          //read off name OKAY
         } else if (second_input === "name") {
           const food = inp.slice(2, inp.length);
           const meal = food.join(" ");
+          console.log("read food ", meal);
           fetch(`http://localhost:4000/recipes/search?name=${meal}`)
             .then((response) => response.json())
             .then((data) => {
