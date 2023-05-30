@@ -21,6 +21,34 @@ fs.readFile("./src/recipes.json", "utf8", (err, data) => {
   }
 });
 
+//update
+app.put("/recipes/update", (req, res) => {
+  const updatedRecipe = req.body;
+  const recipe_index = recipes.findIndex(
+    (recipe) => recipe.shortId === updatedRecipe.shortId
+  );
+  if (recipe_index !== -1) {
+    recipes[recipe_index] = updatedRecipe;
+    fs.writeFile(
+      "./src/recipes.json",
+      JSON.stringify(recipes, null, 2),
+      "utf8",
+      (err) => {
+        if (err) {
+          console.error("Error writing file", err);
+          res.status(500).send(err);
+        } else {
+          res.status(200).json(updatedRecipe);
+          console.log("Updated the recipe: ", updatedRecipe);
+        }
+      }
+    );
+  } else {
+    res.status(404).send();
+  }
+});
+
+//create
 app.post("/recipes", (req, res) => {
   const {
     name,

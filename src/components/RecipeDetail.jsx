@@ -2,14 +2,21 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeDetailDiv, UpdateForm } from "./Styles";
+import { useNavigate } from "react-router-dom";
 
 function RecipeDetail() {
   const { name } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
-  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdate, setIsUpdate] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    calories: "",
+    ingredients: "",
+    instructions: "",
+  });
+  const navigate = useNavigate();
 
   const recipe = recipes.find((recipe) =>
     Array.isArray(recipe.name)
@@ -35,29 +42,53 @@ function RecipeDetail() {
 
   const handleUpdate = () => {
     setIsUpdate(true);
+    setFormValues({
+      name: recipe.name,
+      calories: recipe.calories,
+      ingredients: recipe.ingredients,
+      instructions: recipe.instructions,
+    });
   };
 
   const handleSubmit = (e) => {
-    console.log(e);
+    e.preventDefault();
+    const recipe_index = recipes.findIndex(
+      (item) => item.shortId === recipe.shortId
+    );
+    const updatedRecipe = {
+      ...recipe,
+      name: formValues.name,
+      calories: formValues.calories,
+      ingredients: formValues.ingredients,
+      instructions: formValues.instructions,
+    };
+    fetch(`http://localhost:4000/recipes/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedRecipe),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setIsUpdate(false);
+        fetchRecipes();
+        navigate(`/${updatedRecipe.name}`);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // const updatedRecipe = { ...recipe, [name]: value };
-    // const updatedRecipes = recipes.map((r) => {
-    //   if (r.name === recipe.name) {
-    //     return updatedRecipe;
-    //   }
-    //   return r;
-    // });
-    // setRecipes(updatedRecipes);
+    const { name, value } = e.target;
+    setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
   //Get the recipes
   useEffect(() => {
     fetchRecipes();
-    console.log(recipes);
-    console.log("recipe: ", recipe);
   }, []);
 
   return (
@@ -103,7 +134,7 @@ function RecipeDetail() {
             type="text"
             name="name"
             id="name"
-            value={recipe.name}
+            value={formValues.name}
             onChange={handleChange}
           ></input>
           <label htmlFor="calories">Calories</label>
@@ -111,21 +142,21 @@ function RecipeDetail() {
             type="text"
             name="calories"
             id="calories"
-            value={recipe.calories}
+            value={formValues.calories}
             onChange={handleChange}
           ></input>
           <label htmlFor="ingredients">Ingredients</label>
           <textarea
             name="ingredients"
             id="ingredients"
-            value={recipe.ingredients}
+            value={formValues.ingredients}
             onChange={handleChange}
           ></textarea>
-          <label htmlFor="description">Description</label>
+          <label htmlFor="instructions">Instructions</label>
           <textarea
-            name="description"
-            id="description"
-            value={recipe.description}
+            name="instructions"
+            id="instructions"
+            value={formValues.instructions}
             onChange={handleChange}
           ></textarea>
           <button type="submit">update</button>
