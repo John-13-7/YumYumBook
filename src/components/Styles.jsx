@@ -69,6 +69,11 @@ export const StyledLanding = styled.div`
     text-decoration: none;
   }
 
+  .body {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
   .buttons {
     margin-top: 40px;
     display: grid;
