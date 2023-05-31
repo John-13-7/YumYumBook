@@ -15,6 +15,7 @@ function DatabaseSimulation() {
   const [update, setUpdate] = useState(false); // Updates
   const [readState, setReadState] = useState(false);
   const [invalidInput, setInvalidInput] = useState(false);
+
   //This function runs whenever the person presses enter key
   function useEnterKey(e) {
     if (e.key === "enter" || e.key === "Enter") {
@@ -23,17 +24,16 @@ function DatabaseSimulation() {
       const second_input = inp[1]; //second word
       const third_input = inp[2]; //third word for like read id 3, 3 is the third item
 
-      //TODO FIX THIS ITS KINDA ASS LOWKEY
       //create
       if (first_input === "create") {
         const index = inp.findIndex((int) => /\d/.test(int)); // regex for ints, used for when splicing input for post
         setInput("");
-        const name = inp.slice(1, index);
-        const cal = inp[index];
-        const des = inp.slice(index + 1).join(" ");
-        const imgi = "./recipe_images/pizza.jpg";
-        const cui = "temp";
-        const ing = "temp";
+        const name = inp.slice(1, index); //second input, works for array of names aswell
+        const cal = inp[index]; //third input is calories
+        const des = inp.slice(index + 1).join(" "); //Description is the fourth input
+        const imgi = "./recipe_images/obama.jpg"; //New recipes have picture of obama
+        const cui = "temp"; //The flag for cuisine is defaulted to American
+        const ing = "temp"; //Ingredients and instructions are empty to be updated by user manually (large input)
         const ins = "temp";
         const post = {
           method: "POST",
@@ -56,7 +56,7 @@ function DatabaseSimulation() {
           .catch((error) => console.error(error));
       }
 
-      //delete OKAY
+      //delete off id
       else if (first_input === "delete" || first_input === "Delete") {
         if (second_input === "id") {
           fetch(`http://localhost:4000/recipes/delete?shortId=${third_input}`, {
@@ -67,12 +67,14 @@ function DatabaseSimulation() {
                 fetchRecipes();
               } else {
                 console.log("Error deleting recipe");
+                setInvalidInput(true);
+                setInput("");
               }
             })
             .catch((error) => console.error(error));
         }
 
-        //delete off name OKAY
+        //delete off name
         else if (second_input === "name") {
           const food = inp.slice(2, inp.length);
           const meal = food.join(" ");
@@ -85,6 +87,8 @@ function DatabaseSimulation() {
                 fetchRecipes();
               } else {
                 console.log("Error deleting recipe");
+                setInvalidInput(true);
+                setInput("");
               }
             })
             .catch((error) => console.error(error));
@@ -104,6 +108,8 @@ function DatabaseSimulation() {
                 fetchRecipes();
               } else {
                 console.log("Error deleting recipe");
+                setInvalidInput(true);
+                setInput("");
               }
             })
             .catch((error) => console.error(error));
