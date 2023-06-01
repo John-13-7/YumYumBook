@@ -128,14 +128,21 @@ export const StyledLanding = styled.div`
 
 //Recipe Lookup
 export const LookupSearchBar = styled.form`
-  margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+
+  h1 {
+    font-family: "Red Hat Display", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+  }
   .search-bar {
     margin-top: 10px;
     border: 2px solid black;
-    width: 750px;
+    width: 1000px;
     padding: 10px;
     font-size: 1.5rem;
     font-family: "Open-sans", sans-serif;
@@ -238,6 +245,7 @@ export const StyledArrow = styled(BsArrowRightSquareFill)`
 
 //Database Simulation
 export const DatabaseDirectionsDiv = styled.div`
+  margin-top: 50px;
   h1 {
     font-family: "Red Hat Display", sans-serif;
     text-align: center;
@@ -255,12 +263,12 @@ export const DatabaseSearchBarForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
   .search-bar {
     border: 2px solid black;
     padding: 10px;
     width: 1000px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Open-sans", sans-serif;
   }
   @media screen and (max-width: 768px) {
