@@ -105,10 +105,11 @@ function Lookup() {
   return (
     <div>
       <LookupSearchBar>
+        <h1>Recipe Lookup</h1>
         <input
           value={input}
           className="search-bar"
-          placeholder="Search for the wisdom you seek"
+          placeholder='try: "american", "beef" or "700"'
           onChange={(e) => {
             setInput(e.target.value);
             setFilteredRecipes([]);
