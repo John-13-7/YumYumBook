@@ -60,7 +60,7 @@ export const StyledLanding = styled.div`
   justify-content: center;
   text-align: center;
   margin-top: 50px;
-
+  margin-bottom: 50px;
   .heading {
     display: inline-block;
   }
