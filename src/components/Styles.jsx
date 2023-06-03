@@ -423,3 +423,46 @@ export const UpdateForm = styled.form`
     cursor: pointer;
   }
 `;
+
+//Login Page
+export const LoginPageDiv = styled.div`
+  font-family: "Open-sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  h2 {
+    text-align: center;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #e6e6e6;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f9fd00;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #e2150e;
+  }
+`;

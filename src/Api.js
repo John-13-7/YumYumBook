@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 let recipes = [];
+//reads json files with the recipes
 fs.readFile("./src/recipes.json", "utf8", (err, data) => {
   if (err) {
     console.error("Error reading file", err);
@@ -20,6 +21,22 @@ fs.readFile("./src/recipes.json", "utf8", (err, data) => {
     recipes = JSON.parse(data);
   }
 });
+
+let users = [];
+//read json files with the users
+fs.readFile("./src/users.json", "utf8", (err, data) => {
+  if (err) {
+    console.error("Error reading file", err);
+  } else {
+    users = JSON.parse(data);
+  }
+});
+
+app.get("/users/login", (req,res) => {
+  
+})
+
+
 
 //update
 app.put("/recipes/update", (req, res) => {
@@ -188,6 +205,7 @@ app.get("/recipes/search", (req, res) => {
   res.status(400).send("Invalid query parameters");
 });
 
+//starts the server
 app.listen(4000, () => {
   console.log("Server started on port 4000");
 });
