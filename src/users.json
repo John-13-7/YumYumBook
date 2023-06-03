@@ -1,6 +1,14 @@
 [
-    {
-        "user": "admin",
-        "password": "admin"
-    }
+  {
+    "user": "admin",
+    "password": "admin"
+  },
+  {
+    "username": "meow",
+    "password": "$2b$10$MtKCt6lR6VV2PsOfUUaE5epOP/Hzs31ArhfWzaLeIdnwQeURHWVpC"
+  },
+  {
+    "username": "meow",
+    "password": "$2b$10$g5WzV4CGE6.GFGUTtD/5lerq.oDIBEm1mEl7pwGjSuzlLYO2vDucK"
+  }
 ]

@@ -1,22 +1,9 @@
-import React from "react";
+import React, { useDebugValue, useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledNav } from "./Styles";
-import { useState } from "react";
 function Nav() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isUser, setIsUser] = useState(false);
-  const [user, setUser] = useState("");
-
-  // const handleUsers = () => {
-  //   if (isGuest) {
-  //     setUser("guest");
-  //   } else if (isUser) {
-  //     setUser("user");
-  //   } else if (isAdmin) {
-  //     setUser("admin");
-  //   }
-  // };
-
   return (
     <StyledNav>
       <h1>
@@ -30,13 +17,23 @@ function Nav() {
         {" "}
         <Link to="/Pricing">FAQ</Link>
       </li>
-      <li>
-        {" "}
-        <Link to="/DatabaseSimulation">Database</Link>
-      </li>
-      <li>
-        <Link to="/LoginPage">Login</Link>
-      </li>
+      {isAdmin ? (
+        <li>
+          {" "}
+          <Link to="/DatabaseSimulation">Database</Link>
+        </li>
+      ) : (
+        ""
+      )}
+      {!isLoggedIn ? (
+        <li>
+          <Link to="/Login">Login</Link>
+        </li>
+      ) : (
+        <li>
+          <Link to="/Logout">Logout</Link>
+        </li>
+      )}
     </StyledNav>
   );
 }

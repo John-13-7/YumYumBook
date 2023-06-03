@@ -1,14 +1,22 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
+
 const shortid = require("shortid");
 const fs = require("fs");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+app.use(express.json());
 
 //So it can run locally
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   next();
 });
 
@@ -32,11 +40,36 @@ fs.readFile("./src/users.json", "utf8", (err, data) => {
   }
 });
 
-app.get("/users/login", (req,res) => {
-  
-})
+app.post("/users/login", (req, res) => {
+  const { name, password } = req.body;
+  const input = { name, password };
+  const user = users.find((user) => user.name === req.body.name);
+  console.log(user);
+});
 
+app.post("/users/register", async (req, res) => {
+  const { name, password } = req.body;
+  const input = { name, password };
+  const hash = await bcrypt.hash(input.password, 10);
+  users.push({
+    username: input.name,
+    password: hash,
+  });
 
+  fs.writeFile(
+    "./src/users.json",
+    JSON.stringify(users, null, 2),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.error("Error writing file", err);
+      } else {
+        res.status(201).json(input.name, hash);
+        console.log(input.name, hash);
+      }
+    }
+  );
+});
 
 //update
 app.put("/recipes/update", (req, res) => {
