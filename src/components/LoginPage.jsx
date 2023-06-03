@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LoginPageDiv, StyledForm } from "./Styles";
+import { PageDiv, Login } from "./Styles";
 function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -12,15 +12,22 @@ function LoginPage() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const HandleSubmit = (e) => {
+    fetch("http://localhost:4000/users/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ name: userName, password: password }),
+    });
     setPassword("");
     setUserName("");
     e.preventDefault();
   };
 
   return (
-    <LoginPageDiv>
-      <StyledForm onSubmit={handleSubmit}>
+    <PageDiv>
+      <Login onSubmit={HandleSubmit}>
         <h2>Login</h2>
         <input
           type="text"
@@ -37,8 +44,8 @@ function LoginPage() {
           required
         />
         <button type="submit">Login</button>
-      </StyledForm>
-    </LoginPageDiv>
+      </Login>
+    </PageDiv>
   );
 }
 
