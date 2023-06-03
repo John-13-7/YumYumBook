@@ -434,7 +434,6 @@ export const PageDiv = styled.div`
   height: 100vh;
   background-color: #f2f2f2;
 `;
-
 export const Login = styled.form`
   display: flex;
   flex-direction: column;
@@ -443,6 +442,7 @@ export const Login = styled.form`
   border-radius: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+
   h2 {
     text-align: center;
   }
@@ -464,6 +464,25 @@ export const Login = styled.form`
 
   button:hover {
     background-color: #e2150e;
+  }
+
+  .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h4 {
+    font-size: 0.7rem;
+    display: inline;
+    margin-right: 5px;
+    color: #34f0e1;
+  }
+
+  h3 {
+    display: inline;
+    font-size: 0.9rem;
+    color: #00ffb3;
   }
 `;
 export const Register = styled.form`

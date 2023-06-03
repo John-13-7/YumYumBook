@@ -21,8 +21,33 @@ function RegisterPage() {
   };
 
   const HandleSubmit = (e) => {
-    if (email[0] != email[1]) {
-      console.log("Not equal");
+    if (email[0] === email[1]) {
+      fetch("http://localhost:4000/users/register", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name: userName,
+          password: password,
+          email: email[0],
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Login failed");
+          }
+        })
+        .then((data) => {
+          console.log("Token:", data.token);
+        })
+        .catch((error) => {
+          console.error("Error:", error.message);
+        });
+    } else {
+      console.log("email does not match");
     }
     setEmail(["", ""]);
     e.preventDefault();
