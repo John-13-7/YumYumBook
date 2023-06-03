@@ -1,14 +1,12 @@
 [
   {
-    "user": "admin",
-    "password": "admin"
+    "username": "shawn",
+    "password": "$2b$10$KZIAxNxkzqwT.kCd4WHPwOkrgZL6njlIiiR1vP7OTTVBZ0c6PqR2q",
+    "email": "s"
   },
   {
-    "username": "meow",
-    "password": "$2b$10$MtKCt6lR6VV2PsOfUUaE5epOP/Hzs31ArhfWzaLeIdnwQeURHWVpC"
-  },
-  {
-    "username": "meow",
-    "password": "$2b$10$g5WzV4CGE6.GFGUTtD/5lerq.oDIBEm1mEl7pwGjSuzlLYO2vDucK"
+    "username": "albert",
+    "password": "$2b$10$WEVY4QlRDa6kIHbnDh75vuSCU.R182QDzKnfjvUR8.S7XO2HKufJa",
+    "email": "albert"
   }
 ]

@@ -40,20 +40,31 @@ fs.readFile("./src/users.json", "utf8", (err, data) => {
   }
 });
 
-app.post("/users/login", (req, res) => {
+app.post("/users/login", async (req, res) => {
   const { name, password } = req.body;
-  const input = { name, password };
-  const user = users.find((user) => user.name === req.body.name);
-  console.log(user);
+  console.log(name);
+  console.log(password);
+  console.log(users);
+  const user = users.find((user) => user.username === name);
+  if (!user) {
+    return res.status(400).json({ error: "Invalid name or password" });
+  }
+  const validated = await bcrypt.compare(password, user.password);
+  if (!validated) {
+    return res.status(400).json({ error: "Not validated" });
+  }
+  const token = jwt.sign({ username: user.name }, "its a secwet");
+  return res.json({ success: true, token });
 });
 
 app.post("/users/register", async (req, res) => {
-  const { name, password } = req.body;
-  const input = { name, password };
+  const { name, password, email } = req.body;
+  const input = { name, password, email };
   const hash = await bcrypt.hash(input.password, 10);
   users.push({
     username: input.name,
     password: hash,
+    email: input.email,
   });
 
   fs.writeFile(
@@ -64,7 +75,6 @@ app.post("/users/register", async (req, res) => {
       if (err) {
         console.error("Error writing file", err);
       } else {
-        res.status(201).json(input.name, hash);
         console.log(input.name, hash);
       }
     }

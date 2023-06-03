@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { PageDiv, Login } from "./Styles";
+import { useNavigate } from "react-router-dom";
+
 function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +20,25 @@ function LoginPage() {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ name: userName, password: password }),
-    });
+      body: JSON.stringify({
+        name: userName,
+        password: password,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Login failed");
+        }
+      })
+      .then((data) => {
+        console.log("Token:", data.token);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+      });
     setPassword("");
     setUserName("");
     e.preventDefault();
@@ -44,6 +63,10 @@ function LoginPage() {
           required
         />
         <button type="submit">Login</button>
+        <div className="register">
+          <h4>Not a member?</h4>
+          <h3>Create an account</h3>
+        </div>
       </Login>
     </PageDiv>
   );
