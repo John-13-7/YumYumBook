@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { LookupSearchBar, DisplaySearch } from "./Styles";
-import ReactCountryFlag from "react-country-flag";
 import { motion } from "framer-motion";
+import ReactCountryFlag from "react-country-flag";
 
 function Lookup() {
   const [recipes, setRecipes] = useState([]);

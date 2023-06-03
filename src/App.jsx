@@ -5,7 +5,7 @@ import FAQ from "./components/FAQ";
 import DatabaseSimulation from "./components/DatabaseSimulation";
 import Lookup from "./components/Lookup";
 import RecipeDetail from "./components/RecipeDetail";
-
+import LoginPage from "./components/LoginPage";
 function App() {
   return (
     <div>
@@ -16,6 +16,7 @@ function App() {
         <Route path="/DatabaseSimulation" element={<DatabaseSimulation />} />
         <Route path="/Lookup" element={<Lookup />} />
         <Route path="/:name" element={<RecipeDetail />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
       </Routes>
     </div>
   );
