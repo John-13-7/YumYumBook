@@ -4,23 +4,24 @@ import { StyledNav } from "./Styles";
 
 function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [isData, setIsData] = useState("");
 
   const user_validation = () => {
     if (isData !== "") {
       setIsLoggedIn(true);
     }
-    if (isData === "admin ") {
-      setIsAdmin(true);
-    }
   };
 
   function fetchCurrentUser() {
-    fetch("http://localhost:4000/users/current_user")
+    fetch("http://localhost:4000/users/current")
       .then((response) => response.json())
       .then((data) => {
-        setIsData(data);
+        if (data) {
+          setIsData(data);
+          user_validation();
+        } else {
+          console.log("Error", data);
+        }
       })
       .catch((error) => console.error(error));
   }
@@ -28,8 +29,7 @@ function Nav() {
   //This runs whenver the program mounts
   useEffect(() => {
     fetchCurrentUser();
-    user_validation();
-  }, []); //Add a value inside [] and whenever it changes this will run again
+  }, [isData]); //Add a value inside [] and whenever it changes this will run again
 
   return (
     <StyledNav>
@@ -44,14 +44,10 @@ function Nav() {
         {" "}
         <Link to="/Pricing">FAQ</Link>
       </li>
-      {isAdmin ? (
-        <li>
-          {" "}
-          <Link to="/DatabaseSimulation">Database</Link>
-        </li>
-      ) : (
-        ""
-      )}
+      <li>
+        {" "}
+        <Link to="/DatabaseSimulation">Database</Link>
+      </li>
       {!isLoggedIn ? (
         <li>
           <Link to="/Login">Login</Link>

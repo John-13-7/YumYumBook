@@ -40,7 +40,7 @@ fs.readFile("./src/users.json", "utf8", (err, data) => {
   }
 });
 
-let current_user = '';
+let current_user = "";
 //read the current user, if any
 fs.readFile("./src/current_user.json", "utf8", (err, data) => {
   if (err) {
@@ -61,7 +61,7 @@ app.post("/users/login", async (req, res) => {
   if (!validated) {
     return res.status(400).json({ error: "Not validated" });
   }
-  
+
   //means login was a success
   const token = jwt.sign({ username: user.name }, "its a secwet");
 
@@ -105,15 +105,24 @@ app.post("/users/register", async (req, res) => {
   );
 });
 
-//get current user
-app.get("/users/current_user", (req, res) => {
-  res.json(current_user);
+app.get("/users/current", (req, res) => {
+  // read the current user, if any
+  fs.readFile("./src/current_user.json", "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading file", err);
+      return res.status(500).json({ error: "Error reading file" });
+    } else {
+      current_user = JSON.parse(data);
+      console.log("returning user:", current_user);
+      res.json(current_user);
+    }
+  });
 });
 
 //logout from the current user
 app.post("/users/logout", async (req, res) => {
   console.log("Logout hit");
-  let rewrite = '';
+  let rewrite = "";
   fs.writeFile(
     "./src/current_user.json",
     JSON.stringify(rewrite, null, 2),
@@ -126,7 +135,7 @@ app.post("/users/logout", async (req, res) => {
       }
     }
   );
-})
+});
 
 //update
 app.put("/recipes/update", (req, res) => {
