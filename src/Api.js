@@ -40,11 +40,19 @@ fs.readFile("./src/users.json", "utf8", (err, data) => {
   }
 });
 
+let current_user = '';
+//read the current user, if any
+fs.readFile("./src/current_user.json", "utf8", (err, data) => {
+  if (err) {
+    console.error("Error reading file", err);
+  } else {
+    current_user = JSON.parse(data);
+  }
+});
+
+//login
 app.post("/users/login", async (req, res) => {
   const { name, password } = req.body;
-  console.log(name);
-  console.log(password);
-  console.log(users);
   const user = users.find((user) => user.username === name);
   if (!user) {
     return res.status(400).json({ error: "Invalid name or password" });
@@ -53,10 +61,26 @@ app.post("/users/login", async (req, res) => {
   if (!validated) {
     return res.status(400).json({ error: "Not validated" });
   }
+  
+  //means login was a success
   const token = jwt.sign({ username: user.name }, "its a secwet");
+
+  fs.writeFile(
+    "./src/current_user.json",
+    JSON.stringify(name, null, 2),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.error("Error writing file", err);
+      } else {
+        console.log(name, " has logged in.");
+      }
+    }
+  );
   return res.json({ success: true, token });
 });
 
+//register
 app.post("/users/register", async (req, res) => {
   const { name, password, email } = req.body;
   const input = { name, password, email };
@@ -80,6 +104,29 @@ app.post("/users/register", async (req, res) => {
     }
   );
 });
+
+//get current user
+app.get("/users/current_user", (req, res) => {
+  res.json(current_user);
+});
+
+//logout from the current user
+app.post("/users/logout", async (req, res) => {
+  console.log("Logout hit");
+  let rewrite = '';
+  fs.writeFile(
+    "./src/current_user.json",
+    JSON.stringify(rewrite, null, 2),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.error("Error writing file", err);
+      } else {
+        console.log("user logged out");
+      }
+    }
+  );
+})
 
 //update
 app.put("/recipes/update", (req, res) => {

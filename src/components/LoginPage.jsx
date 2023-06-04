@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleUser = (e) => {
     setUserName(e.target.value);
@@ -35,6 +36,7 @@ function LoginPage() {
       .then((data) => {
         console.log("Token:", data.token);
         console.log(data);
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error:", error.message);
@@ -65,7 +67,7 @@ function LoginPage() {
         <button type="submit">Login</button>
         <div className="register">
           <h4>Not a member?</h4>
-          <h3>Create an account</h3>
+          <h3 onClick={() => navigate("/Register")}>Create an account</h3>
         </div>
       </Login>
     </PageDiv>

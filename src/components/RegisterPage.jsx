@@ -1,10 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { PageDiv, Register } from "./Styles";
+import { useNavigate } from "react-router-dom";
+
 function RegisterPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(["", ""]);
+  const navigate = useNavigate();
 
   const handleUser = (e) => {
     setUserName(e.target.value);
@@ -37,7 +40,7 @@ function RegisterPage() {
           if (response.ok) {
             return response.json();
           } else {
-            throw new Error("Login failed");
+            throw new Error("Register failed");
           }
         })
         .then((data) => {
@@ -46,10 +49,13 @@ function RegisterPage() {
         .catch((error) => {
           console.error("Error:", error.message);
         });
+      navigate("/Login");
     } else {
-      console.log("email does not match");
+      console.log("Email does not match try again.");
     }
     setEmail(["", ""]);
+    setPassword("");
+    setUserName("");
     e.preventDefault();
   };
   return (
