@@ -588,5 +588,16 @@
     "cuisine": "French", 
     "ingredients": "chicken pieces, red wine, mushrooms, onions, bacon, garlic, thyme, bay leaves, flour, butter, salt, and pepper.", 
     "instructions": "In a large pot, sauté bacon until crisp. Remove and set aside. In the same pot, brown chicken pieces. Remove and set aside. Sauté onions and mushrooms until golden. Add garlic, flour, and thyme. Return chicken and bacon to the pot. Pour in red wine and add bay leaves. Simmer until the chicken is tender. Season with salt and pepper. Serve hot." 
-  }
+  },
+  { 
+    "shortId": "59", 
+    "name": "Bouillabaisse", 
+    "calories": 235, 
+    "description": "A traditional Provençal fish stew made with various types of fish and shellfish.", 
+    "image": "./recipe_images/Bouillabaisse.jpg ", 
+    "cuisine": "French", 
+    "ingredients": "assorted fish and shellfish (such as cod, shrimp, mussels, and clams), onions, fennel, tomatoes, garlic, saffron, thyme, bay leaves, orange zest, fish stock, olive oil, salt, and pepper.", 
+    "instructions": "In a large pot, sauté onions, fennel, and garlic in olive oil. Add tomatoes, saffron, thyme, bay leaves, and orange zest. Pour in fish stock and bring to a boil. Reduce heat and simmer for 20 minutes. Add fish and shellfish, simmer until cooked through. Season with salt and pepper. Serve hot with crusty bread."
+ }
+
 ]
