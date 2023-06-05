@@ -578,5 +578,15 @@
     "cuisine": "temp",
     "ingredients": "kenya",
     "instructions": "2024"
+  },
+    { 
+    "shortId": "58", 
+    "name": "Coq au Vin", 
+    "calories": 134, 
+    "description": "Chicken braised in red wine with mushrooms, onions, and bacon.", 
+    "image": "./recipe_images/Coq_au_Vin.jpg ", 
+    "cuisine": "French", 
+    "ingredients": "chicken pieces, red wine, mushrooms, onions, bacon, garlic, thyme, bay leaves, flour, butter, salt, and pepper.", 
+    "instructions": "In a large pot, sauté bacon until crisp. Remove and set aside. In the same pot, brown chicken pieces. Remove and set aside. Sauté onions and mushrooms until golden. Add garlic, flour, and thyme. Return chicken and bacon to the pot. Pour in red wine and add bay leaves. Simmer until the chicken is tender. Season with salt and pepper. Serve hot." 
   }
 ]
