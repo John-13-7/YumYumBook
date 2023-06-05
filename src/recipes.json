@@ -672,10 +672,10 @@
  "shortId": "67", 
 "name": "Tarte Tatin", 
 "calories": 319, 
-"description": "An upside-down caramelized apple tart with a buttery pastry crust.", "image": "./recipe_images/Tarte_Tatin.jpg ", 
+"description": "An upside-down caramelized apple tart with a buttery pastry crust.", 
+"image": "./recipe_images/Tarte_Tatin.jpg ", 
 "cuisine": "French", 
-"ingredients": "Puff pastry, Apples (firm and tart varieties, such as Granny Smith), Sugar
-, Butter", 
+"ingredients": "Puff pastry, Apples (firm and tart varieties, such as Granny Smith), Sugar, Butter", 
 "instructions": "Peel, core, and quarter the apples. Caramelize sugar and butter in a skillet. Arrange apples in a circular pattern in the skillet. Roll out puff pastry and cover the apples. Bake until the pastry is golden brown and crispy. Let cool, then invert and serve."
  }
 
