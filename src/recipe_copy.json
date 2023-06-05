@@ -598,5 +598,74 @@
     "cuisine": "French", 
     "ingredients": "eggplant, zucchini, bell peppers, tomatoes, onions, garlic, thyme, bay leaves, olive oil, salt, and pepper.", 
     "instructions": "Slice eggplant, zucchini, and bell peppers. Sauté onions and garlic in olive oil. Add eggplant, zucchini, and bell peppers. Stir in tomatoes, thyme, and bay leaves. Cook until vegetables are tender. Season with salt and pepper. Serve warm as a side dish or over rice or pasta."
+ },
+ {
+ "shortId": "61", 
+"name": "Escargots de Bourgogne", 
+"calories": 312, 
+"description": "Snails cooked with garlic butter and served in their shells.", 
+"image": "./recipe_images/Escargots de Bourgogne.jpg ", 
+"cuisine": "French", 
+"ingredients": "snails, garlic butter (butter, garlic, parsley), salt, and pepper.", 
+"instructions": "Clean and prepare snails according to instructions. Mix softened butter with minced garlic and chopped parsley. Stuff each snail with garlic butter. Season with salt and pepper. Bake in a preheated oven until butter is melted and snails are cooked. Serve hot with crusty bread."
+ },
+{ 
+"shortId": "62", 
+"name": "Boeuf Bourguignon", 
+"calories": 217, 
+"description": "A rich beef stew made with red wine, onions, carrots, and mushrooms.", "image": "./recipe_images/Boeuf Bourguignon.jpg ", 
+"cuisine": "French", 
+"ingredients": "beef chuck roast, red wine, onions, carrots, mushrooms, bacon, garlic, thyme, bay leaves, beef broth, flour, butter, salt, and pepper.", 
+"instructions": "Cut beef into chunks. Sauté bacon until crisp. Remove and set aside. Brown beef in the same pot. Add onions, carrots, mushrooms, and garlic. Stir in flour. Pour in red wine and beef broth. Add thyme and bay leaves. Simmer until beef is tender. Season with salt and pepper. Serve hot with mashed potatoes or crusty bread." 
+},
+{ 
+"shortId": "63", 
+"name": "Quiche Lorraine", 
+"calories": 450, 
+"description": "A savory tart made with a custard filling of eggs, cream, bacon, and cheese.", 
+"image": "./recipe_images/Quiche Lorraine.jpg ", 
+"cuisine": "French", 
+"ingredients": "pie crust, eggs, cream, bacon, gruyere cheese, onions, salt, and pepper.", 
+"instructions": "Pre-bake pie crust. Cook bacon until crisp. Remove and crumble. Sauté onions until golden. In a bowl, whisk eggs and cream. Stir in bacon, onions, and grated gruyere cheese. Season with salt and pepper. Pour mixture into the pre-baked pie crust. Bake until set and golden. Serve warm or at room temperature."
+ },
+{ 
+"shortId": "64", 
+"name": "Crème Brûlée", 
+"calories": 398, 
+"description": "A creamy dessert consisting of a rich custard topped with a layer of caramelized sugar.", 
+"image": "./recipe_images/Crème Brûlée.jpg ", 
+"cuisine": "French", 
+"ingredients": "heavy cream, egg yolks, sugar, vanilla extract, salt, and granulated sugar (for caramelizing).", 
+"instructions": "Preheat the oven. In a saucepan, heat cream until hot but not boiling." 
+},
+{ 
+"shortId": "65", 
+"name": "Croque Monsieur", 
+"calories": 209, 
+"description": "A grilled ham and cheese sandwich topped with béchamel sauce and melted cheese.", 
+"image": "./recipe_images/Croque Monsieur.jpg ", 
+"cuisine": "French", 
+"ingredients": "Sliced bread, Cooked ham, Gruyère cheese, Béchamel sauce (butter, flour,milk, nutmeg), Dijon mustard, Salt and pepper, Butter (for grilling)", 
+"instructions": "Spread Dijon mustard on bread slices. Layer ham and Gruyère cheese on half of the bread slices. Close the sandwiches and spread béchamel sauce on top. Grill the sandwiches with butter until toasted and cheese is melted." 
+},
+{ 
+"shortId": "66", 
+"name": "Confit de Canard", 
+"calories": 318, 
+"description": "Duck leg slow-cooked in its own fat until tender and served with potatoes.", 
+"image": "./recipe_images/Confit de Canard.jpg ", 
+"cuisine": "French", 
+"ingredients": "Duck legs, Duck fat (enough to submerge the duck legs), Garlic cloves, Fresh thyme, Salt and pepper", 
+"instructions": "Season duck legs and refrigerate. Rinse and pat dry the duck legs. Place in a dish with garlic, thyme, and submerge in duck fat. Slow cook in the oven until tender and meat falls off the bone. Sear the duck legs in a skillet for crispy skin."
+ },
+{
+ "shortId": "67", 
+"name": "Tarte Tatin", 
+"calories": 319, 
+"description": "An upside-down caramelized apple tart with a buttery pastry crust.", "image": "./recipe_images/Tarte_Tatin.jpg ", 
+"cuisine": "French", 
+"ingredients": "Puff pastry, Apples (firm and tart varieties, such as Granny Smith), Sugar
+, Butter", 
+"instructions": "Peel, core, and quarter the apples. Caramelize sugar and butter in a skillet. Arrange apples in a circular pattern in the skillet. Roll out puff pastry and cover the apples. Bake until the pastry is golden brown and crispy. Let cool, then invert and serve."
  }
 ]
