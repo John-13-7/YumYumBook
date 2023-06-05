@@ -588,6 +588,15 @@
     "cuisine": "French", 
     "ingredients": "assorted fish and shellfish (such as cod, shrimp, mussels, and clams), onions, fennel, tomatoes, garlic, saffron, thyme, bay leaves, orange zest, fish stock, olive oil, salt, and pepper.", 
     "instructions": "In a large pot, sauté onions, fennel, and garlic in olive oil. Add tomatoes, saffron, thyme, bay leaves, and orange zest. Pour in fish stock and bring to a boil. Reduce heat and simmer for 20 minutes. Add fish and shellfish, simmer until cooked through. Season with salt and pepper. Serve hot with crusty bread."
+ },
+  {
+    "shortId": "60", 
+    "name": "Ratatouille", 
+    "calories": 253, 
+    "description": "A vegetable stew made with tomatoes, zucchini, eggplant, bell peppers, and herbs.", 
+    "image": "./recipe_images/Ratatouille.jpg ", 
+    "cuisine": "French", 
+    "ingredients": "eggplant, zucchini, bell peppers, tomatoes, onions, garlic, thyme, bay leaves, olive oil, salt, and pepper.", 
+    "instructions": "Slice eggplant, zucchini, and bell peppers. Sauté onions and garlic in olive oil. Add eggplant, zucchini, and bell peppers. Stir in tomatoes, thyme, and bay leaves. Cook until vegetables are tender. Season with salt and pepper. Serve warm as a side dish or over rice or pasta."
  }
-
 ]
