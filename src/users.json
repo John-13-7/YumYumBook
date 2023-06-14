@@ -13,5 +13,10 @@
     "username": "admin",
     "password": "$2b$10$HxL1ANtsDpLzLdnohQX/a.b.1Rb0Gk4L0.KzFdx1YnPmrz5bfjIKS",
     "email": "admin@admin.org"
+  },
+  {
+    "username": "meow",
+    "password": "$2b$10$WYxxwnZMWohRE.voxSeWYOYsEGYBmkxvoEM4sxLekJlE4lQWHXxDW",
+    "email": "meow"
   }
 ]
